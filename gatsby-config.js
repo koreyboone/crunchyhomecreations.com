@@ -2,12 +2,18 @@ module.exports = {
   siteMetadata: {
     title: `Crunchy Home Creations`,
     description: `Custom built, home made creations by a Crunchy family.™`,
-    author: `@koreyboone`,
+    siteUrl: `https://crunchyhomecreations.com`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        // Accepts all options defined by `babel-plugin-emotion` plugin.
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
