@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Subheading, Text } from '../../shared/Typography'
+import { Subheading, Text } from '../../shared/typography'
 import { colors, breakpoints, link, pullHeadline } from '../../../utils/styles'
 
 const About = styled.div`
