@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Crunchy Home Creations`,
     description: `Custom built, home made creations by a Crunchy family.™`,
-    siteUrl: `https://crunchyhomecreations.com`
+    siteUrl: `https://www.crunchyhomecreations.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -33,6 +33,7 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-shopify2',
       options: {
@@ -42,6 +43,4 @@ module.exports = {
       },
     },
   ],
-  // this (optional) plugin enables Progressive Web App + Offline functionality
-  // To learn more, visit: https://gatsby.app/offline
 }

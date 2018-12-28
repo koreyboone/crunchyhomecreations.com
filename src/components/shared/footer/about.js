@@ -9,7 +9,9 @@ const About = styled.div`
 const Headline = styled.h2`
   ${pullHeadline};
   color: ${colors.brandPrimary};
+  font-size: 1.75rem;
 `
+
 const Content = styled.div`
   @media (min-width: ${breakpoints.hd}px) {
     padding-top: 4rem;
@@ -25,9 +27,9 @@ export default () => (
     <Content>
       <Text>
         Founded by Kristi and Korey Boone, Crunchy Home Creations seeks to
-        provide high-quality custom-made items. Founded by Kristi and Korey
-        Boone, Crunchy Home Creations seeks to provide high-quality custom-made
-        items.
+        provide high-quality custom made items. From running gear, to holistic
+        tonics and syrups, our products are sure to please, or your money back
+        guaranteed.
       </Text>
       <Subheading>Questions or concerns?</Subheading>
       <Text>

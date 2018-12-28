@@ -1,32 +1,39 @@
 import { css } from '@emotion/core'
 
 /*
- * NOTE: use a six-character hex code for all colors to allow alpha channel
- * adjustment without adding extra vars and/or a color manipulation lib.
- *
- * Example:
- *    // use the brand color at 25% opacity
- *    border-color: ${colors.brand}40;
- */
+ /* As hex codes */
+
+//.color - primary - 0 { color: #0B3A61 }	/* Main Primary color */
+//.color - primary - 1 { color: #0B5897 }
+// .color - primary - 2 { color: #0F4878 }
+// .color - primary - 3 { color: #052744 }
+// .color - primary - 4 { color: #031728 }
+
+// .color - complement - 0 { color: #975B08 }	/* Main Complement color */
+// .color - complement - 1 { color: #EB8802 }
+// .color - complement - 2 { color: #BA700B }
+// .color - complement - 3 { color: #693D00 }
+// .color - complement - 4 { color: #3E2400 }
+
 export const colors = {
   brandPrimary: '#0b3a61',
   brandSecondary: '#975b08',
   brandSecondaryLight: '#EB8802',
   brandAccent: '#ff9400',
-  brandDarker: '#221133',
-  brandDark: '#442266',
+  brandDarker: '#031738',
+  brandDark: '#052744',
   brand: '#663399',
   brandBright: '#e0d6eb',
-  brandLight: '#f5f3f7',
-  brandLighter: '#fbfafc',
+  brandLight: '#f3f4f7',
+  brandLighter: '#0B5897',
   lightest: '#ffffff',
   darkest: '#031728',
   textLight: '#71808a',
   textLighter: '#aaaaaa',
   text: '#333333',
   lilac: `#8c65b3`,
-  accent: `#ffb238`
-};
+  accent: `#ffb238`,
+}
 
 export const spacing = {
   '3xs': 2,
@@ -37,21 +44,21 @@ export const spacing = {
   lg: 24,
   xl: 32,
   '2xl': 40,
-  '3xl': 48
-};
+  '3xl': 48,
+}
 
 export const breakpoints = {
   mobile: 400,
   phablet: 550,
   tablet: 750,
   desktop: 1000,
-  hd: 1200
-};
+  hd: 1200,
+}
 
 export const radius = {
   default: 2,
-  large: 4
-};
+  large: 4,
+}
 
 const defaultFontStack = [
   '-apple-system',
@@ -63,8 +70,8 @@ const defaultFontStack = [
   'Cantarell',
   'Open Sans',
   'Helvetica Neue',
-  'sans-serif'
-].join();
+  'sans-serif',
+].join()
 
 const monospaceFontStack = [
   `Space Mono`,
@@ -74,89 +81,89 @@ const monospaceFontStack = [
   `Consolas`,
   `Liberation Mono`,
   `Courier New`,
-  `monospace`
-].join();
+  `monospace`,
+].join()
 
 export const fonts = {
   body: defaultFontStack,
   heading: `Futura PT, ${defaultFontStack}`,
-  monospace: monospaceFontStack
-};
+  monospace: monospaceFontStack,
+}
 
-export const dropdown = {
-  container: css`
-    background: ${colors.lightest};
-    border: 1px solid ${colors.brandBright};
-    border-radius: ${radius.default}px;
-    border-top-right-radius: 0;
-    box-shadow: 0 3px 8px ${colors.textLight}40;
-    box-sizing: border-box;
-    margin-top: ${spacing['2xs']}px;
-    padding: ${spacing.sm}px;
-    position: absolute;
-    right: ${spacing.sm + spacing.xs}px;
-    top: 100%;
+// export const dropdown = {
+//   container: css`
+//     background: ${colors.lightest};
+//     border: 1px solid ${colors.brandBright};
+//     border-radius: ${radius.default}px;
+//     border-top-right-radius: 0;
+//     box-shadow: 0 3px 8px ${colors.textLight}40;
+//     box-sizing: border-box;
+//     margin-top: ${spacing['2xs']}px;
+//     padding: ${spacing.sm}px;
+//     position: absolute;
+//     right: ${spacing.sm + spacing.xs}px;
+//     top: 100%;
 
-    &::before,
-    &::after {
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-style: solid;
-    }
+//     &::before,
+//     &::after {
+//       content: ' ';
+//       position: absolute;
+//       width: 0;
+//       height: 0;
+//       border-style: solid;
+//     }
 
-    &::before {
-      top: -12px;
-      right: -1px;
-      border-width: 0 0 12px 12px;
-      border-color: transparent transparent ${colors.brandBright} transparent;
-    }
+//     &::before {
+//       top: -12px;
+//       right: -1px;
+//       border-width: 0 0 12px 12px;
+//       border-color: transparent transparent ${colors.brandBright} transparent;
+//     }
 
-    &::after {
-      top: -10px;
-      right: 0;
-      border-width: 0 0 10px 10px;
-      border-color: transparent transparent ${colors.lightest} transparent;
-    }
-  `,
-  heading: css`
-    color: ${colors.brand};
-    font-size: 0.75rem;
-    font-weight: normal;
-    margin: 0 0 ${spacing.sm}px;
-  `,
-  divider: css`
-    background: ${colors.brandLight};
-    height: 1px;
-    margin-left: -${spacing.sm}px;
-    margin-right: -${spacing.sm}px;
-  `,
-  item: css`
-    color: #000;
-    display: block;
-    font-size: 0.875rem;
-    margin-left: -${spacing.sm}px;
-    margin-right: -${spacing.sm}px;
-    padding: ${spacing.sm}px;
+//     &::after {
+//       top: -10px;
+//       right: 0;
+//       border-width: 0 0 10px 10px;
+//       border-color: transparent transparent ${colors.lightest} transparent;
+//     }
+//   `,
+//   heading: css`
+//     color: ${colors.brand};
+//     font-size: 0.75rem;
+//     font-weight: normal;
+//     margin: 0 0 ${spacing.sm}px;
+//   `,
+//   divider: css`
+//     background: ${colors.brandLight};
+//     height: 1px;
+//     margin-left: -${spacing.sm}px;
+//     margin-right: -${spacing.sm}px;
+//   `,
+//   item: css`
+//     color: #000;
+//     display: block;
+//     font-size: 0.875rem;
+//     margin-left: -${spacing.sm}px;
+//     margin-right: -${spacing.sm}px;
+//     padding: ${spacing.sm}px;
 
-    &:hover {
-      background-color: ${colors.brandLighter};
-      color: ${colors.brand};
-    }
-  `
-};
+//     &:hover {
+//       background-color: ${colors.brandLighter};
+//       color: ${colors.brand};
+//     }
+//   `
+// };
 
-export const visuallyHidden = css`
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-`;
+// export const visuallyHidden = css`
+//   position: absolute;
+//   width: 1px;
+//   height: 1px;
+//   padding: 0;
+//   overflow: hidden;
+//   clip: rect(0, 0, 0, 0);
+//   white-space: nowrap;
+//   border: 0;
+// `;
 
 export const input = {
   default: css`
@@ -178,8 +185,8 @@ export const input = {
     box-shadow: 0 0 0 3px ${colors.brandBright};
     outline: 0;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  `
-};
+  `,
+}
 
 export const select = {
   default: css`
@@ -194,14 +201,14 @@ export const select = {
 `,
   small: css`
     padding-right: ${spacing.xl}px !important;
-  `
-};
+  `,
+}
 
 export const link = css`
   border-bottom: 1px solid ${colors.brandPrimary};
-  color: ${colors.brandPrimary};
+  color: ${colors.brandLighter};
   text-decoration: none;
-`;
+`
 
 export const button = {
   default: css`
@@ -272,8 +279,8 @@ export const button = {
     cursor: pointer;
     padding: 0;
     font-size: 100%;
-  `
-};
+  `,
+}
 
 export const pullHeadline = css`
   font-family: ${fonts.heading};
@@ -287,4 +294,4 @@ export const pullHeadline = css`
     line-height: 1;
     margin-top: 0;
   }
-`;
+`

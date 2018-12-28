@@ -8,6 +8,9 @@ import Footer from './footer/footer'
 import SEO from './seo.js'
 import { spacing } from '../../utils/styles'
 
+// Import Futura PT typeface
+import '../../fonts/futura-pt/Webfonts/futurapt_demi_macroman/stylesheet.css';
+
 const Main = styled('main')`
   display: block;
   margin: 0 auto;

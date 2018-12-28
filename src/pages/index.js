@@ -1,25 +1,23 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import styled from '@emotion/styled'
 
 import Layout from '../components/shared/layout'
-import Image from '../components/shared/image'
+import Store from '../components/store/store'
+import { pullHeadline, breakpoints } from '../utils/styles'
+
+const Headline = styled.h1`
+  ${pullHeadline};
+
+  @media (min-width: ${breakpoints.hd}px) {
+    padding-top: 80px;
+  }
+`
+
 
 const IndexPage = () => (
   <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Headline>Check out our store!</Headline>
+    <Store />
   </Layout>
 )
 

@@ -19,7 +19,7 @@ const Footer = styled.div`
   margin: 0 auto;
 `
 const Legal = styled.p`
-  color: ${colors.brandSecondaryLight};
+  color: ${colors.brandLighter};
   font-size: 0.875rem;
   margin-top: ${spacing['2xl'] * 3}px;
   margin-bottom: ${spacing['2xl'] * 2}px;
