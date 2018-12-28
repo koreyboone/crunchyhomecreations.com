@@ -33,7 +33,7 @@ const Preview = styled('div')`
 `
 
 const Name = styled.h3`
-  color: ${colors.darkest};
+  color: ${colors.brandPrimary};
   font-family: ${fonts.heading};
   font-size: 1.5rem;
   font-weight: 500;
@@ -45,7 +45,7 @@ const Name = styled.h3`
 `
 
 const Description = styled.p`
-  color: ${colors.brandSecondaryLight};
+  color: ${colors.brandLighter};
   font-weight: 300;
   margin-top: 0.25rem;
 
@@ -56,7 +56,7 @@ const Description = styled.p`
 `
 
 const Price = styled.p`
-  color: ${colors.brandSecondaryLight};
+  color: ${colors.brandLighter};
   font-family: ${fonts.heading};
   font-size: 1.5rem;
   font-weight: 500;
@@ -76,6 +76,6 @@ export default ({ product }) => (
       USD ${product.variants[0].price}
       {product.variants.length !== 1 ? '+' : ''}
     </Price>
-    <Description>{product.description.slice(0, 150)}...</Description>
+    <Description>{product.description.slice(0, 300)}...</Description>
   </Preview>
 )

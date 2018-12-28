@@ -20,12 +20,12 @@ export const colors = {
   brandSecondary: '#975b08',
   brandSecondaryLight: '#EB8802',
   brandAccent: '#ff9400',
-  brandDarker: '#221133',
-  brandDark: '#442266',
+  brandDarker: '#031738',
+  brandDark: '#052744',
   brand: '#663399',
   brandBright: '#e0d6eb',
-  brandLight: '#f5f3f7',
-  brandLighter: '#fbfafc',
+  brandLight: '#0F4878',
+  brandLighter: '#0B5897',
   lightest: '#ffffff',
   darkest: '#031728',
   textLight: '#71808a',
@@ -206,7 +206,7 @@ export const select = {
 
 export const link = css`
   border-bottom: 1px solid ${colors.brandPrimary};
-  color: ${colors.brandPrimary};
+  color: ${colors.brandLight};
   text-decoration: none;
 `;
 
