@@ -13,6 +13,7 @@ const Header = styled.header`
   box-sizing: border-box;
   display: flex;
   height: 60px;
+  justify-content: space-between;
   left: 0;
   padding-left: ${spacing.md}px;
   padding-right: ${spacing.md}px;
@@ -21,22 +22,6 @@ const Header = styled.header`
   top: 0;
   z-index: 4;
 `
-
-// const Header = styled.header`
-//   align-items: center;
-//   background-color: ${colors.lightest};
-//   box-sizing: border-box;
-//   display: flex;
-//   height: 60px;
-//   justify-content: space-between;
-//   left: 0;
-//   padding-left: ${spacing.md}px;
-//   padding-right: ${spacing.md}px;
-//   position: sticky;
-//   right: 0;
-//   top: 0;
-//   z-index: 1000;
-// `
 
 const HomeLink = styled(Link)`
 
