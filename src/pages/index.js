@@ -16,7 +16,7 @@ const Headline = styled.h1`
 
 const IndexPage = () => (
   <Layout>
-    <Headline>Check out our stuff!</Headline>
+    <Headline>Check out our store!</Headline>
     <Store />
   </Layout>
 )

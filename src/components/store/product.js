@@ -55,14 +55,6 @@ const Description = styled.p`
   }
 `
 
-// const Description = styled('p')`
-
-//   @media (min-width: 650px) {
-//     font-size: 0.875rem;
-//     min-height: 115px;
-//   }
-// `
-
 const Price = styled.p`
   color: ${colors.brandSecondaryLight};
   font-family: ${fonts.heading};
@@ -70,19 +62,20 @@ const Price = styled.p`
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 0;
-`
 
-// const Price = styled('p')`
-//   @media (min-width: 650px) {
-//     font-size: 1.25rem;
-//   }
-// `
+  @media (min-width: 650px) {
+    font-size: 1.25rem;
+  }
+`
 
 export default ({ product }) => (
   <Preview>
     <ProductImages images={product.images} alt={product.title} />
     <Name>{product.title}</Name>
-    <Price>USD ${product.variants[0].price}</Price>
+    <Price>
+      USD ${product.variants[0].price}
+      {product.variants.length !== 1 ? '+' : ''}
+    </Price>
     <Description>{product.description.slice(0, 150)}...</Description>
   </Preview>
 )
