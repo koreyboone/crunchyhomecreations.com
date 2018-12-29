@@ -69,7 +69,7 @@ export default ({ alt, images }) => {
   return (
     <>
       <ImageContainer>
-        <Image fadeIn={false} fluid={currentImage.localFile.childImageSharp.fluid} alt={alt} />
+        <Image fluid={currentImage.localFile.childImageSharp.fluid} alt={alt} />
       </ImageContainer>
       <PreviewWrapper>
         {images.map((image, index) => {
