@@ -8,10 +8,9 @@ const Previews = styled.div`
   margin-top: 2rem;
 
   @media (min-width: 480px) {
-    align-items: flex-start;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 5%;
   }
 `
 

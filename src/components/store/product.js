@@ -9,27 +9,6 @@ const Preview = styled('div')`
   margin-bottom: 3rem;
   width: 100%;
 
-  @media (min-width: 480px) {
-    margin-left: 6%;
-    width: 47%;
-
-    :nth-of-type(2n + 1) {
-      margin-left: 0;
-    }
-  }
-
-  @media (min-width: 650px) {
-    margin-left: 5%;
-    width: 30%;
-
-    :nth-of-type(2n + 1) {
-      margin-left: 5%;
-    }
-
-    :nth-of-type(3n + 1) {
-      margin-left: 0;
-    }
-  }
 `
 
 const Name = styled.h3`
