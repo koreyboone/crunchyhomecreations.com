@@ -4,7 +4,6 @@ import { jsx, css } from '@emotion/core'
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import Image from 'gatsby-image'
-import { Link } from 'gatsby'
 
 import { spacing, radius, colors } from '../../utils/styles'
 
@@ -26,7 +25,7 @@ const PreviewWrapper = styled.div`
   margin-top: ${spacing.xs}px;
 `
 
-const ImageLink = styled(Link)`
+const ImageLink = styled.a`
   border: 2px solid transparent;
   border-radius: ${radius.default}px;
   box-sizing: border-box;
@@ -78,7 +77,7 @@ export default ({ alt, images }) => {
               key={image.id}
               css={index === imageIndex ? selectedImage : ''}
               onClick={e => handleImageClick(e, index)}
-              to={image.localFile.childImageSharp.fluid.src}
+              href={image.localFile.childImageSharp.fluid.src}
             >
               <Image fluid={image.localFile.childImageSharp.fluid} alt={alt} />
             </ImageLink>
