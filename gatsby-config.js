@@ -27,10 +27,10 @@ module.exports = {
         name: `Crunch Home Creations`,
         short_name: `Crunch Home Creations`,
         start_url: `/`,
-        background_color: `#0b3a61`,
+        background_color: `#ffffff`,
         theme_color: `#0b3a61`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `static/android-chrome-512x512.png`, // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-offline',
