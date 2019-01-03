@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import styled from '@emotion/styled'
 
 import StoreContext from '../storeContext'
-import EmptyCart from './EmptyCart'
+import EmptyCart from './emptyCart'
 import { colors, button, dropdown } from '../../../utils/styles'
 
 const OpenCart = styled.div`
