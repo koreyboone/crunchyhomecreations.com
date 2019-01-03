@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 
+import Cart from '../../store/cart/cart'
 import Logo from './logo'
 import { colors, spacing } from '../../../utils/styles'
 
@@ -24,20 +25,13 @@ const Header = styled.header`
 `
 
 const HomeLink = styled(Link)`
-
 `
-
-// const HomeLink = styled(Link)`
-//   display: block;
-//   flex-shrink: 0;
-//   line-height: 1;
-//   margin-right: auto;
-// `
 
 export default () => (
   <Header>
     <HomeLink to="/">
       <Logo />
     </HomeLink>
+    <Cart />
   </Header>
 )

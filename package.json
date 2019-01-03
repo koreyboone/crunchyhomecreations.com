@@ -12,14 +12,16 @@
     "gatsby-plugin-manifest": "^2.0.12",
     "gatsby-plugin-offline": "^2.0.20",
     "gatsby-plugin-react-helmet": "^3.0.2",
-    "gatsby-plugin-sharp": "^2.0.10",
+    "gatsby-plugin-sharp": "^2.0.17",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-source-shopify2": "^2.0.6",
     "gatsby-transformer-sharp": "^2.1.7",
     "prop-types": "^15.6.2",
     "react": "next",
     "react-dom": "next",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-onclickoutside": "^6.7.1",
+    "shopify-buy": "^1.11.0"
   },
   "keywords": [
     "crunchy home creations, gatsby"
@@ -28,6 +30,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "echo \"Error: no linter specified\" && exit 0",

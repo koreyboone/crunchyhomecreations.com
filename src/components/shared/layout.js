@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
+import StoreContext, { defaultStoreContext } from '../store/storeContext'
+import storeReducer from '../store/storeReducer'
 import Header from './header/header'
 import Footer from './footer/footer'
 import SEO from './seo.js'
 import { spacing } from '../../utils/styles'
 
 // Import Futura PT typeface
-import '../../fonts/futura-pt/Webfonts/futurapt_demi_macroman/stylesheet.css';
+import '../../fonts/futura-pt/Webfonts/futurapt_demi_macroman/stylesheet.css'
 
 const Main = styled('main')`
   display: block;
@@ -19,27 +21,22 @@ const Main = styled('main')`
   position: relative;
 `
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <SEO />
-        <Header siteTitle={data.site.siteMetadata.title} />
+const Layout = ({ children }) => {
+  const [state, dispatch] = useReducer(storeReducer, {
+    ...defaultStoreContext,
+  })
+
+  const contextValues = {...state, dispatch}
+
+  return <>
+      <SEO />
+      <StoreContext.Provider value={contextValues}>
+        <Header />
         <Main> {children} </Main>
         <Footer />
-      </>
-    )}
-  />
-)
+      </StoreContext.Provider>
+    </>
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
