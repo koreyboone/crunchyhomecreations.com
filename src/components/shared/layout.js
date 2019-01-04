@@ -21,14 +21,55 @@ const Main = styled('main')`
   position: relative;
 `
 
+const initializeCheckout = async client => {
+  console.log('Running initializeCheckout')
+  // Check for an existing cart.
+  const isBrowser = typeof window !== 'undefined'
+  const existingCheckoutID = isBrowser
+    ? localStorage.getItem('shopify_checkout_id')
+    : null
+
+  const createNewCheckout = () => client.checkout.create()
+  const fetchCheckout = id => client.checkout.fetch(id)
+
+  if (existingCheckoutID) {
+    const checkout = await fetchCheckout(existingCheckoutID)
+
+    // Make sure this cart hasn’t already been purchased.
+    if (!checkout.completedAt) {
+      if (isBrowser) {
+        localStorage.setItem('shopify_checkout_id', checkout.id)
+      }
+      return checkout
+    }
+  }
+
+  const newCheckout = await createNewCheckout()
+  if (isBrowser) {
+    localStorage.setItem('shopify_checkout_id', newCheckout.id)
+  }
+  return newCheckout
+}
+
 const Layout = ({ children }) => {
-  const [state, dispatch] = useReducer(storeReducer, {
-    ...defaultStoreContext,
-  })
+  const [state, dispatch] = useReducer(storeReducer, { ...defaultStoreContext })
 
-  const contextValues = {...state, dispatch}
+  useEffect(
+    () => {
+      initializeCheckout(state.client)
+        .then(checkout => {
+          dispatch({ type: 'initializeCheckout', payload: checkout })
+        })
+        .catch(e => console.log(e))
+    },
+    [dispatch]
+  )
 
-  return <>
+  const contextValues = { ...state, dispatch }
+  console.log('State outside of effect', state)
+
+  return (
+    <>
       <SEO />
       <StoreContext.Provider value={contextValues}>
         <Header />
@@ -36,6 +77,7 @@ const Layout = ({ children }) => {
         <Footer />
       </StoreContext.Provider>
     </>
+  )
 }
 
 Layout.propTypes = {

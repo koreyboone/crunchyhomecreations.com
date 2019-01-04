@@ -19,6 +19,8 @@ export const colors = {
   brandPrimary: '#0b3a61',
   brandSecondary: '#975b08',
   brandSecondaryLight: '#EB8802',
+  brandSecondaryLighter: '#FFA72D',
+  brandSecondaryDark: '#BA700B',
   brandAccent: '#ff9400',
   brandDarker: '#031738',
   brandDark: '#052744',
@@ -151,8 +153,8 @@ export const dropdown = {
       background-color: ${colors.brandLighter};
       color: ${colors.brand};
     }
-  `
-};
+  `,
+}
 
 export const visuallyHidden = css`
   position: absolute;
@@ -163,7 +165,7 @@ export const visuallyHidden = css`
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-`;
+`
 
 export const input = {
   default: css`
@@ -181,7 +183,7 @@ export const input = {
     padding: ${spacing.xs}px;
   `,
   focus: css`
-    border-color: ${colors.lilac};
+    border-color: ${colors.brandLighter};
     box-shadow: 0 0 0 3px ${colors.brandBright};
     outline: 0;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -191,7 +193,7 @@ export const input = {
 export const select = {
   default: css`
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23${colors.lilac.substr(
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23${colors.brandLighter.substr(
     1
   )}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -245,9 +247,9 @@ export const button = {
     font-size: 1.25rem;
     padding: 0.25em 0.625em;
   `,
-  purple: css`
-    background-color: ${colors.brand};
-    border-color: ${colors.lilac};
+  blue: css`
+    background-color: ${colors.brandPrimary};
+    border-color: ${colors.brandLighter};
     color: ${colors.lightest};
     cursor: pointer;
     display: block;
@@ -257,6 +259,24 @@ export const button = {
     :focus,
     :hover {
       background-color: ${colors.brandDark};
+    }
+
+    &[disabled] {
+      background-color: ${colors.textLight};
+    }
+  `,
+  orange: css`
+    background-color: ${colors.brandSecondaryLight};
+    border-color: ${colors.brandSecondaryLighter};
+    color: ${colors.lightest};
+    cursor: pointer;
+    display: block;
+    margin-top: 0.75rem;
+    width: 100%;
+
+    :focus,
+    :hover {
+      background-color: ${colors.brandSecondaryDark};
     }
 
     &[disabled] {
