@@ -69,6 +69,32 @@ const Quantity = styled.input`
   max-width: calc(30% - ${spacing.xs}px);
 `
 
+const addVariantToCart = async (
+  dispatch,
+  checkoutId,
+  client,
+  variantId,
+  quantity
+) => {
+  if (variantId === '' || !quantity) {
+    console.error('Both a size and quantity are required.')
+    return
+  }
+
+  const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
+  let updatedCheckout
+  try {
+    updatedCheckout = await client.checkout.addLineItems(
+      checkoutId,
+      lineItemsToAdd
+    )
+  } catch (e) {
+    console.error(e)
+  }
+
+  dispatch({ type: 'updateCheckout', payload: { updatedCheckout } })
+}
+
 export default ({ productId, variants }) => {
   const defaultVariantState = variants.length === 1 ? variants[0].shopifyId : ''
   const [variant, setVariant] = useState(defaultVariantState)
@@ -77,7 +103,7 @@ export default ({ productId, variants }) => {
   const id = productId.substring(58, 64)
   const hasVariants = variants.length > 1
 
-  const { dispatch } = useContext(StoreContext)
+  const { dispatch, checkout, client } = useContext(StoreContext)
 
   return (
     <Form
@@ -92,8 +118,13 @@ export default ({ productId, variants }) => {
           alert('Please choose a quantity of 1 or more.')
           return
         }
-
-        dispatch({ type: 'addVariantToCart', payload: {variant, quantity}})
+        addVariantToCart(
+          dispatch,
+          checkout.id,
+          client,
+          variant,
+          quantity
+        )
       }}
     >
       {hasVariants && (

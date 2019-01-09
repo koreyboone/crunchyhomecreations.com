@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
 import StoreContext, { defaultStoreContext } from '../store/storeContext'
@@ -22,7 +21,6 @@ const Main = styled('main')`
 `
 
 const initializeCheckout = async client => {
-  console.log('Running initializeCheckout')
   // Check for an existing cart.
   const isBrowser = typeof window !== 'undefined'
   const existingCheckoutID = isBrowser
@@ -60,13 +58,12 @@ const Layout = ({ children }) => {
         .then(checkout => {
           dispatch({ type: 'initializeCheckout', payload: checkout })
         })
-        .catch(e => console.log(e))
+        .catch(e => console.error('Could not initialize checkout\n', e))
     },
     [dispatch]
   )
 
   const contextValues = { ...state, dispatch }
-  console.log('State outside of effect', state)
 
   return (
     <>

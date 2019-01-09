@@ -14,7 +14,6 @@ export default () => (
     }) => (
       <Helmet defaultTitle={title} titleTemplate={`%s · ${title}`}>
         <html lang="en" />
-        <body/>
 
         <link
           rel="preconnect"
@@ -23,8 +22,8 @@ export default () => (
 
         <link rel="canonical" href={siteUrl} />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="msapplication-TileColor" content="#663399" />
-        <meta name="theme-color" content="#663399" />
+          <meta name="msapplication-TileColor" content="#0b3a61" />
+          <meta name="theme-color" content="#0b3a61" />
 
         <meta name="description" content={description} />
 
