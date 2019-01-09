@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import metaball from './metaball.svg'
 import { colors, spacing, link } from '../../../utils/styles'
@@ -25,7 +26,7 @@ const Legal = styled.p`
   margin-bottom: ${spacing['2xl'] * 2}px;
 `
 
-const Link = styled.a`
+const Link = styled(OutboundLink)`
   ${link}
 `
 
