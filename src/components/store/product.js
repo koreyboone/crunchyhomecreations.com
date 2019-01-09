@@ -3,12 +3,12 @@ import styled from '@emotion/styled'
 
 import { colors, fonts } from '../../utils/styles'
 import ProductImages from './productImages'
+import AddToCart from './addToCart'
 
-const Preview = styled('div')`
+const Preview = styled.div`
   display: inline-block;
   margin-bottom: 3rem;
   width: 100%;
-
 `
 
 const Name = styled.h3`
@@ -56,5 +56,6 @@ export default ({ product }) => (
       {product.variants.length !== 1 ? '+' : ''}
     </Price>
     <Description>{product.description.slice(0, 300)}...</Description>
+    <AddToCart productId={product.id} variants={product.variants} />
   </Preview>
 )

@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useEffect, useReducer } from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
+import StoreContext, { defaultStoreContext } from '../store/storeContext'
+import storeReducer from '../store/storeReducer'
 import Header from './header/header'
 import Footer from './footer/footer'
 import SEO from './seo.js'
 import { spacing } from '../../utils/styles'
 
 // Import Futura PT typeface
-import '../../fonts/futura-pt/Webfonts/futurapt_demi_macroman/stylesheet.css';
+import '../../fonts/futura-pt/Webfonts/futurapt_demi_macroman/stylesheet.css'
 
 const Main = styled('main')`
   display: block;
@@ -19,27 +20,62 @@ const Main = styled('main')`
   position: relative;
 `
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
+const initializeCheckout = async client => {
+  // Check for an existing cart.
+  const isBrowser = typeof window !== 'undefined'
+  const existingCheckoutID = isBrowser
+    ? localStorage.getItem('shopify_checkout_id')
+    : null
+
+  const createNewCheckout = () => client.checkout.create()
+  const fetchCheckout = id => client.checkout.fetch(id)
+
+  if (existingCheckoutID) {
+    const checkout = await fetchCheckout(existingCheckoutID)
+
+    // Make sure this cart hasn’t already been purchased.
+    if (!checkout.completedAt) {
+      if (isBrowser) {
+        localStorage.setItem('shopify_checkout_id', checkout.id)
       }
-    `}
-    render={data => (
-      <>
-        <SEO />
-        <Header siteTitle={data.site.siteMetadata.title} />
+      return checkout
+    }
+  }
+
+  const newCheckout = await createNewCheckout()
+  if (isBrowser) {
+    localStorage.setItem('shopify_checkout_id', newCheckout.id)
+  }
+  return newCheckout
+}
+
+const Layout = ({ children }) => {
+  const [state, dispatch] = useReducer(storeReducer, { ...defaultStoreContext })
+
+  useEffect(
+    () => {
+      initializeCheckout(state.client)
+        .then(checkout => {
+          dispatch({ type: 'initializeCheckout', payload: checkout })
+        })
+        .catch(e => console.error('Could not initialize checkout\n', e))
+    },
+    [dispatch]
+  )
+
+  const contextValues = { ...state, dispatch }
+
+  return (
+    <>
+      <SEO />
+      <StoreContext.Provider value={contextValues}>
+        <Header />
         <Main> {children} </Main>
         <Footer />
-      </>
-    )}
-  />
-)
+      </StoreContext.Provider>
+    </>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

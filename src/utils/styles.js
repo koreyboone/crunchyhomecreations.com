@@ -19,6 +19,8 @@ export const colors = {
   brandPrimary: '#0b3a61',
   brandSecondary: '#975b08',
   brandSecondaryLight: '#EB8802',
+  brandSecondaryLighter: '#FFA72D',
+  brandSecondaryDark: '#BA700B',
   brandAccent: '#ff9400',
   brandDarker: '#031738',
   brandDark: '#052744',
@@ -90,80 +92,80 @@ export const fonts = {
   monospace: monospaceFontStack,
 }
 
-// export const dropdown = {
-//   container: css`
-//     background: ${colors.lightest};
-//     border: 1px solid ${colors.brandBright};
-//     border-radius: ${radius.default}px;
-//     border-top-right-radius: 0;
-//     box-shadow: 0 3px 8px ${colors.textLight}40;
-//     box-sizing: border-box;
-//     margin-top: ${spacing['2xs']}px;
-//     padding: ${spacing.sm}px;
-//     position: absolute;
-//     right: ${spacing.sm + spacing.xs}px;
-//     top: 100%;
+export const dropdown = {
+  container: css`
+    background: ${colors.lightest};
+    border: 1px solid ${colors.brandBright};
+    border-radius: ${radius.default}px;
+    border-top-right-radius: 0;
+    box-shadow: 0 3px 8px ${colors.textLight}40;
+    box-sizing: border-box;
+    margin-top: ${spacing['2xs']}px;
+    padding: ${spacing.sm}px;
+    position: absolute;
+    right: ${spacing.sm + spacing.xs}px;
+    top: 100%;
 
-//     &::before,
-//     &::after {
-//       content: ' ';
-//       position: absolute;
-//       width: 0;
-//       height: 0;
-//       border-style: solid;
-//     }
+    &::before,
+    &::after {
+      content: ' ';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
 
-//     &::before {
-//       top: -12px;
-//       right: -1px;
-//       border-width: 0 0 12px 12px;
-//       border-color: transparent transparent ${colors.brandBright} transparent;
-//     }
+    &::before {
+      top: -12px;
+      right: -1px;
+      border-width: 0 0 12px 12px;
+      border-color: transparent transparent ${colors.brandBright} transparent;
+    }
 
-//     &::after {
-//       top: -10px;
-//       right: 0;
-//       border-width: 0 0 10px 10px;
-//       border-color: transparent transparent ${colors.lightest} transparent;
-//     }
-//   `,
-//   heading: css`
-//     color: ${colors.brand};
-//     font-size: 0.75rem;
-//     font-weight: normal;
-//     margin: 0 0 ${spacing.sm}px;
-//   `,
-//   divider: css`
-//     background: ${colors.brandLight};
-//     height: 1px;
-//     margin-left: -${spacing.sm}px;
-//     margin-right: -${spacing.sm}px;
-//   `,
-//   item: css`
-//     color: #000;
-//     display: block;
-//     font-size: 0.875rem;
-//     margin-left: -${spacing.sm}px;
-//     margin-right: -${spacing.sm}px;
-//     padding: ${spacing.sm}px;
+    &::after {
+      top: -10px;
+      right: 0;
+      border-width: 0 0 10px 10px;
+      border-color: transparent transparent ${colors.lightest} transparent;
+    }
+  `,
+  heading: css`
+    color: ${colors.brandPrimary};
+    font-size: 0.75rem;
+    font-weight: normal;
+    margin: 0 0 ${spacing.sm}px;
+  `,
+  divider: css`
+    background: ${colors.brandLight};
+    height: 1px;
+    margin-left: -${spacing.sm}px;
+    margin-right: -${spacing.sm}px;
+  `,
+  item: css`
+    color: #000;
+    display: block;
+    font-size: 0.875rem;
+    margin-left: -${spacing.sm}px;
+    margin-right: -${spacing.sm}px;
+    padding: ${spacing.sm}px;
 
-//     &:hover {
-//       background-color: ${colors.brandLighter};
-//       color: ${colors.brand};
-//     }
-//   `
-// };
+    &:hover {
+      background-color: ${colors.brandLighter};
+      color: ${colors.brand};
+    }
+  `,
+}
 
-// export const visuallyHidden = css`
-//   position: absolute;
-//   width: 1px;
-//   height: 1px;
-//   padding: 0;
-//   overflow: hidden;
-//   clip: rect(0, 0, 0, 0);
-//   white-space: nowrap;
-//   border: 0;
-// `;
+export const visuallyHidden = css`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+`
 
 export const input = {
   default: css`
@@ -181,7 +183,7 @@ export const input = {
     padding: ${spacing.xs}px;
   `,
   focus: css`
-    border-color: ${colors.lilac};
+    border-color: ${colors.brandLighter};
     box-shadow: 0 0 0 3px ${colors.brandBright};
     outline: 0;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -191,7 +193,7 @@ export const input = {
 export const select = {
   default: css`
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23${colors.lilac.substr(
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23${colors.brandLighter.substr(
     1
   )}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -216,7 +218,7 @@ export const button = {
     border: 1px solid ${colors.brandBright};
     border-radius: ${radius.default}px;
     box-sizing: border-box;
-    color: ${colors.brand};
+    color: ${colors.brandPrimary};
     cursor: pointer;
     display: block;
     font-family: ${fonts.body};
@@ -229,7 +231,7 @@ export const button = {
 
     :focus,
     :hover {
-      background: ${colors.brand}0c;
+      background: ${colors.brandPrimary}0c;
     }
 
     &[disabled] {
@@ -245,9 +247,9 @@ export const button = {
     font-size: 1.25rem;
     padding: 0.25em 0.625em;
   `,
-  purple: css`
-    background-color: ${colors.brand};
-    border-color: ${colors.lilac};
+  blue: css`
+    background-color: ${colors.brandPrimary};
+    border-color: ${colors.brandLighter};
     color: ${colors.lightest};
     cursor: pointer;
     display: block;
@@ -257,6 +259,24 @@ export const button = {
     :focus,
     :hover {
       background-color: ${colors.brandDark};
+    }
+
+    &[disabled] {
+      background-color: ${colors.textLight};
+    }
+  `,
+  orange: css`
+    background-color: ${colors.brandSecondaryLight};
+    border-color: ${colors.brandSecondaryLighter};
+    color: ${colors.lightest};
+    cursor: pointer;
+    display: block;
+    margin-top: 0.75rem;
+    width: 100%;
+
+    :focus,
+    :hover {
+      background-color: ${colors.brandSecondaryDark};
     }
 
     &[disabled] {
