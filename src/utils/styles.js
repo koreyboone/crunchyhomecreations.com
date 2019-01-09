@@ -208,7 +208,7 @@ export const select = {
 
 export const link = css`
   border-bottom: 1px solid ${colors.brandPrimary};
-  color: ${colors.brandLighternpm};
+  color: ${colors.brandLighter};
   text-decoration: none;
 `
 
