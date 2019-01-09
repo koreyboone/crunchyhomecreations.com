@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
+
 import { Subheading, Text } from '../../shared/typography'
 import { colors, breakpoints, link, pullHeadline } from '../../../utils/styles'
 
@@ -17,7 +19,7 @@ const Content = styled.div`
     padding-top: 4rem;
   }
 `
-const Link = styled.a`
+const Link = styled(OutboundLink)`
   ${link};
 `
 

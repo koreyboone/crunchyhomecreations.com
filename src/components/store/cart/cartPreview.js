@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import styled from '@emotion/styled'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import StoreContext from '../storeContext'
 import EmptyCart from './emptyCart'
@@ -20,7 +21,7 @@ const Divider = styled.div`
   ${dropdown.divider};
 `
 
-const Checkout = styled.a`
+const Checkout = styled(OutboundLink)`
   ${button.default};
   ${button.big};
   ${button.blue};
