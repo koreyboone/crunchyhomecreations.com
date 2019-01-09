@@ -40,7 +40,12 @@ module.exports = {
         icon: `static/android-chrome-512x512.png`, // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        offlineGoogleAnalytics: true,
+      },
+    },
     {
       resolve: 'gatsby-source-shopify2',
       options: {
