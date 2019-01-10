@@ -41,12 +41,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-offline',
-      options: {
-        offlineGoogleAnalytics: true,
-      },
-    },
-    {
       resolve: 'gatsby-source-shopify2',
       options: {
         shopName: 'crunchyhomecreations',
@@ -54,5 +48,13 @@ module.exports = {
         verbose: true,
       },
     },
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        offlineGoogleAnalytics: true,
+      },
+    },
+
+    `gatsby-plugin-netlify`,
   ],
 }
