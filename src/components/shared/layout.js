@@ -67,7 +67,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <SEO />
+      { /*<SEO />*/}
       <StoreContext.Provider value={contextValues}>
         <Header />
         <Main> {children} </Main>

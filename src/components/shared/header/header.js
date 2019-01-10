@@ -25,6 +25,10 @@ const Header = styled.header`
 `
 
 const HomeLink = styled(Link)`
+  display: block;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-right: auto;
 `
 
 export default () => (
