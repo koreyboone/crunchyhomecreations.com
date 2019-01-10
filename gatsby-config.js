@@ -32,7 +32,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Crunchy Home Creations`,
-        short_name: `Crunchy Home Creations`,
+        short_name: `Crunchy Store`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#0b3a61`,
