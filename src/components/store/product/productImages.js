@@ -1,11 +1,9 @@
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core'
-// eslint-disable-next-line
 import React, { useState } from 'react'
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import Image from 'gatsby-image'
 
-import { spacing, radius, colors } from '../../utils/styles'
+import { spacing, radius, colors } from '../../../utils/styles'
 
 const ImageContainer = styled.div`
   display: flex;

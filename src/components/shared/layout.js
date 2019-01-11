@@ -15,7 +15,7 @@ import '../../fonts/futura-pt/Webfonts/futurapt_demi_macroman/stylesheet.css'
 const Main = styled('main')`
   display: block;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 1200px;
   padding: ${spacing.xl}px ${spacing.sm}px ${spacing['3xl']}px;
   position: relative;
 `
@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <SEO />
+      {/*<SEO />*/}
       <StoreContext.Provider value={contextValues}>
         <Header />
         <Main> {children} </Main>

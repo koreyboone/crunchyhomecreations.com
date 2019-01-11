@@ -2,14 +2,14 @@ import React, { useState, useContext } from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
-import StoreContext from './storeContext'
+import StoreContext from '../storeContext'
 import {
   button,
   visuallyHidden,
   input,
   select,
   spacing,
-} from '../../utils/styles'
+} from '../../../utils/styles'
 
 const Form = styled.form`
   align-items: center;

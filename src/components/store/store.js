@@ -2,15 +2,19 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Product from './product'
+import Product from './product/product'
+import { breakpoints, spacing } from '../../utils/styles'
 
-const Previews = styled.div`
-  margin-top: 2rem;
+const ProductsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: ${spacing.lg}px;
 
-  @media (min-width: 480px) {
-    display: grid;
-    grid-gap: 5%;
-    grid-template-columns: auto auto;
+  @media (min-width: ${breakpoints.desktop}px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: ${spacing['2xl']}px;
   }
 `
 
@@ -47,11 +51,11 @@ export default () => (
       }
     `}
     render={({ products }) => (
-      <Previews>
+      <ProductsContainer>
         {products.edges.map(({ node: product }) => (
           <Product key={product.id} product={product} />
         ))}
-      </Previews>
+      </ProductsContainer>
     )}
   />
 )

@@ -7,6 +7,7 @@ import { pullHeadline, breakpoints } from '../utils/styles'
 
 const Headline = styled.h1`
   ${pullHeadline};
+  text-align: center;
 
   @media (min-width: ${breakpoints.hd}px) {
     padding-top: 80px;
