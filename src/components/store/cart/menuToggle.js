@@ -36,12 +36,15 @@ const ButtonCount = styled.span`
 
 export default () => {
   const { checkout, dispatch } = useContext(StoreContext)
+  const itemsInCart = checkout.lineItems.reduce(
+    (total, item) => total + item.quantity, 0)
   return (
-    <Button onClick={() => dispatch({ type: 'toggleCart' })}>
+    <Button
+      aria-label={`Shopping cart with ${itemsInCart} items`}
+      onClick={() => dispatch({ type: 'toggleCart' })}
+    >
       <Icon />
-      <ButtonCount>
-        {checkout.lineItems.reduce((total, item) => total + item.quantity, 0)}
-      </ButtonCount>
+      <ButtonCount>{itemsInCart}</ButtonCount>
     </Button>
   )
 }
