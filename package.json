@@ -22,8 +22,8 @@
     "gatsby-source-shopify2": "^2.0.6",
     "gatsby-transformer-sharp": "^2.1.7",
     "prop-types": "^15.6.2",
-    "react": "next",
-    "react-dom": "next",
+    "react": "^16.8.0-alpha.0",
+    "react-dom": "^16.8.0-alpha.0",
     "react-helmet": "^5.2.0",
     "react-onclickoutside": "^6.7.1",
     "shopify-buy": "^2.0.0"
