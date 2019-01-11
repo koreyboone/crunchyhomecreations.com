@@ -41,11 +41,10 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-shopify2',
+      resolve: 'gatsby-source-shopify',
       options: {
         shopName: 'crunchyhomecreations',
         accessToken: 'd0099fc9d0ddf3c1bc9d4cc8f622468a',
-        verbose: true,
       },
     },
     {
