@@ -9,10 +9,9 @@ const svg = css`
 `
 
 const logoContainer = css`
-  display: inline-block;
-  height: 48px;
-  display: flex;
   align-items: center;
+  display: flex;
+  height: 48px;
 `
 
 const Monogram = () => (
@@ -20,8 +19,8 @@ const Monogram = () => (
     viewBox="0 0 512 512"
     css={css`
       display: inline-block;
-      margin-right: 10px;
       height: 28px;
+      margin-right: 10px;
     `}
   >
     <path

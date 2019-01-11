@@ -6,8 +6,6 @@ import { withStoreContext } from '../storeContext'
 import MenuToggle from './menuToggle'
 import CartPreview from './cartPreview'
 
-const CartContainer = styled.div``
-
 class Cart extends React.PureComponent {
   handleClickOutside = event => {
     const { dispatch, isCartOpen } = this.props.storeContext
@@ -16,10 +14,10 @@ class Cart extends React.PureComponent {
 
   render() {
     return (
-      <CartContainer>
+      <>
         <MenuToggle />
         <CartPreview />
-      </CartContainer>
+      </>
     )
   }
 }

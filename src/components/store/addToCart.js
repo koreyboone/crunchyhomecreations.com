@@ -12,10 +12,10 @@ import {
 } from '../../utils/styles'
 
 const Form = styled.form`
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
 `
 
 const Button = styled.button`
@@ -33,7 +33,9 @@ const HiddenLabel = styled.label`
 `
 const inputStyles = css`
   ${input.default};
+  /* stylelint-disable */
   margin-top: ${spacing.sm}px;
+  /* stylelint-enable */
   width: 100%;
 
   :focus {
@@ -48,9 +50,10 @@ const inputStyles = css`
 const Size = styled.select`
   ${inputStyles};
   ${select.default};
-
-  max-width: 70%;
+  /* stylelint-disable */
   flex: 2 70%;
+  max-width: 70%;
+  /* stylelint-enable */
 
   @media (min-width: 650px) {
     ${select.small};
@@ -58,14 +61,15 @@ const Size = styled.select`
 `
 
 const VisibleLabel = styled.label`
-  margin-top: ${spacing.sm}px;
   font-size: 0.75rem;
+  margin-top: ${spacing.sm}px;
 `
 
 const Quantity = styled.input`
   ${inputStyles};
-
+  /* stylelint-disable */
   flex: 1 calc(30% - ${spacing.xs}px);
+  /* stylelint-enable */
   max-width: calc(30% - ${spacing.xs}px);
 `
 
@@ -118,13 +122,7 @@ export default ({ productId, variants }) => {
           alert('Please choose a quantity of 1 or more.')
           return
         }
-        addVariantToCart(
-          dispatch,
-          checkout.id,
-          client,
-          variant,
-          quantity
-        )
+        addVariantToCart(dispatch, checkout.id, client, variant, quantity)
       }}
     >
       {hasVariants && (

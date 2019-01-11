@@ -4,7 +4,12 @@
   "version": "0.1.0",
   "author": "Korey Boone <kboone00@gmail.com>",
   "devDependencies": {
-    "prettier": "^1.15.3"
+    "prettier": "^1.15.3",
+    "stylelint": "^9.9.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-order": "^2.0.0",
+    "stylelint-processor-styled-components": "^1.5.1"
   },
   "dependencies": {
     "@emotion/core": "^10.0.5",
@@ -39,6 +44,7 @@
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "echo \"Error: no linter specified\" && exit 0",
+    "stylelint": "stylelint './src/**/*.js'",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "repository": {

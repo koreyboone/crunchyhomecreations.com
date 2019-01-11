@@ -76,7 +76,9 @@ const HiddenLabel = styled.label`
 
 const Quantity = styled.input`
   ${inputStyles};
+  /* stylelint-disable */
   margin-right: ${spacing.xs}px;
+  /* stylelint-enable */
   max-width: calc(20% - ${spacing.xs}px);
 `
 
@@ -195,7 +197,7 @@ const LineItem = ({ item, setCartLoading }) => {
           setQuantity(event.target.value)
           setCartLoading(true)
           if (event.target.value.trim() !== '')
-          debouncedUpdateQuantity(event.target.value)
+            debouncedUpdateQuantity(event.target.value)
         }}
         value={quantity}
       />

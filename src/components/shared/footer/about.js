@@ -10,7 +10,9 @@ const About = styled.div`
 `
 const Headline = styled.h2`
   ${pullHeadline};
+  /* stylelint-disable */
   color: ${colors.brandPrimary};
+  /* stylelint-enable */
   font-size: 1.75rem;
 `
 

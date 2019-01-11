@@ -44,19 +44,19 @@ const loadingBar = css`
 `
 
 const loadingBarOverlay = css`
+  height: 100%;
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
 `
 
 const loadingStyles = css`
   ${hideText};
 
   ::after {
-    ${loadingBar};
     content: ' ';
+    ${loadingBar};
   }
 `
 
@@ -102,36 +102,37 @@ export const Lede = styled('p')`
   margin: 0.5rem 0 0;
 
   &.loading {
-    ${loadingStyles};
     height: 1em;
+    ${loadingStyles};
 
     ::after {
-      ${loadingBarOverlay};
       height: 1em;
+      ${loadingBarOverlay};
     }
   }
 `
 
 export const Text = styled('p')`
-  color: ${colors.text};
-  font-size: 1rem;
-  margin: 1rem 0 0;
+         color: ${colors.text};
+         font-size: 1rem;
+         margin: 1rem 0 0;
 
-  /* This is kind of hacky; maybe we can improve this? */
-  &.loading {
-    ${loadingStyles};
-    ${loadingBar};
-    height: 1em;
-    margin-bottom: 2em;
-    position: relative;
+         /* This is kind of hacky; maybe we can improve this? */
+         &.loading {
+           ${loadingStyles};
+           ${loadingBar};
+           /* stylelint-disable */
+           height: 1em;
+           /* stylelint-enable */
+           margin-bottom: 2em;
+           position: relative;
 
-    ::after {
-      position: absolute;
-      top: 1.45em;
-      width: 95%;
-    }
-  }
-`
+           ::after {
+             position: absolute;
+             top: 1.45em;
+             width: 95%;
+           }
+         }`
 
 export const UnorderedList = styled('ul')`
   color: ${colors.text};

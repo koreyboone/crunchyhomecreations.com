@@ -30,8 +30,8 @@ const Checkout = styled(OutboundLink)`
 const CostBlock = styled.div`
   font-size: 0.875rem;
   margin: ${spacing.sm}px 0;
-  text-align: right;
   position: relative;
+  text-align: right;
 
   ::before {
     background-color: ${colors.lightest}dd;
@@ -41,9 +41,9 @@ const CostBlock = styled.div`
     left: 0;
     opacity: ${props => (props.isLoading ? 1 : 0)};
     position: absolute;
+    right: 0;
     top: 0;
     transition: opacity 0.5s ease;
-    right: 0;
     z-index: 2;
   }
 `
@@ -81,13 +81,15 @@ const ContinueShoppingLink = styled.button`
 
 const CloseCartButton = styled.button`
   ${button.link};
+  /* stylelint-disable */
   border-bottom: 0;
+  /* stylelint-enable */
   color: ${colors.brandLighter};
   float: right;
+  font-size: 1rem;
   height: 20px;
   text-align: center;
   width: 20px;
-  font-size: 1rem;
 `
 
 export default () => {

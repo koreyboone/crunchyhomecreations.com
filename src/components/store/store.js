@@ -9,8 +9,8 @@ const Previews = styled.div`
 
   @media (min-width: 480px) {
     display: grid;
-    grid-template-columns: auto auto;
     grid-gap: 5%;
+    grid-template-columns: auto auto;
   }
 `
 

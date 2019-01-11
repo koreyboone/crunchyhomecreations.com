@@ -39,8 +39,8 @@ const Price = styled.p`
   font-family: ${fonts.heading};
   font-size: 1.5rem;
   font-weight: 500;
-  margin-top: 0;
   margin-bottom: 0;
+  margin-top: 0;
 
   @media (min-width: 650px) {
     font-size: 1.25rem;

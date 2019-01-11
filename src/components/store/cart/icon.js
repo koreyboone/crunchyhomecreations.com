@@ -12,8 +12,8 @@ const iconStyles = css`
 const iconStrokeStyles = css`
   fill: none;
   stroke: ${colors.brandPrimary};
-  stroke-width: 1.4173;
   stroke-miterlimit: 140;
+  stroke-width: 1.4173;
 `
 
 export default () => (
@@ -56,11 +56,10 @@ export default () => (
     </linearGradient>
     <path
       css={css`
-        fill: none;
-        stroke: ${colors.brandPrimary};
-        stroke-width: 1.4173;
-        stroke-miterlimit: 140;
         fill: url(#cart-icon-gradient);
+        stroke: ${colors.brandPrimary};
+        stroke-miterlimit: 140;
+        stroke-width: 1.4173;
       `}
       d="M16.7,9.5L18.2,3H3.8l1.5,6.5C5.4,9.8,5.7,10,6.1,10h9.9C16.3,10,16.6,9.8,16.7,9.5z"
     />

@@ -9,9 +9,11 @@ const Button = styled.button`
   ${button.default};
   ${button.ghost};
   ${button.small};
+  /* stylelint-disable */
+  align-items: center;
+  /* stylelint-enable */
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-left: ${spacing.sm}px;
   position: relative;
 `

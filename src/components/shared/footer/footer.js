@@ -16,14 +16,14 @@ const FooterContainer = styled.footer`
 `
 
 const Footer = styled.div`
-  max-width: 600px;
   margin: 0 auto;
+  max-width: 600px;
 `
 const Legal = styled.p`
   color: ${colors.brandLighter};
   font-size: 0.875rem;
-  margin-top: ${spacing['2xl'] * 3}px;
   margin-bottom: ${spacing['2xl'] * 2}px;
+  margin-top: ${spacing['2xl'] * 3}px;
 `
 
 const Link = styled(OutboundLink)`
@@ -39,7 +39,7 @@ export default () => (
         <span role="img" aria-label="love">
           💙
         </span>{' '}
-        by <Link href="https://github.com/koreyboone">@koreyboone</Link> · {' '}
+        by <Link href="https://github.com/koreyboone">@koreyboone</Link> ·{' '}
         <Link href="https://github.com/koreyboone/crunchyhomecreations.com">
           See the source code on GitHub
         </Link>

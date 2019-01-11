@@ -8,9 +8,9 @@ import { colors, spacing } from '../../../utils/styles'
 
 const Header = styled.header`
   align-items: center;
+  background-color: ${colors.lightest};
   border-bottom: 1px solid ${colors.brandLight};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: ${colors.lightest};
   box-sizing: border-box;
   display: flex;
   height: 60px;
