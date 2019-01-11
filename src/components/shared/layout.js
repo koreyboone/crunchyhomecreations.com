@@ -31,14 +31,19 @@ const initializeCheckout = async client => {
   const fetchCheckout = id => client.checkout.fetch(id)
 
   if (existingCheckoutID) {
-    const checkout = await fetchCheckout(existingCheckoutID)
+    try {
+      const checkout = await fetchCheckout(existingCheckoutID)
 
-    // Make sure this cart hasn’t already been purchased.
-    if (!checkout.completedAt) {
-      if (isBrowser) {
-        localStorage.setItem('shopify_checkout_id', checkout.id)
+      // Make sure this cart hasn’t already been purchased.
+      if (!checkout.completedAt) {
+        if (isBrowser) {
+          localStorage.setItem('shopify_checkout_id', checkout.id)
+        }
+        return checkout
       }
-      return checkout
+    } catch (e) {
+      console.error('Problem loading cart from Shopify.')
+      localStorage.setItem('shopify_checkout_id', null)
     }
   }
 
