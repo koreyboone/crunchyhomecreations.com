@@ -150,7 +150,7 @@ const updateLineItem = async (
   }
 }
 
-const LineItem = ({ item, setCartLoading }) => {
+const LineItem = ({ item, setCartLoading, isCartLoading }) => {
   const [quantity, setQuantity] = useState(item.quantity || 1)
   const { dispatch, client, checkout } = useContext(StoreContext)
 
@@ -164,12 +164,17 @@ const LineItem = ({ item, setCartLoading }) => {
 
   const handleRemove = event => {
     event.preventDefault()
+    setCartLoading(true)
     removeLineItem(client, checkout.id, item.id, dispatch)
   }
 
-  const debouncedUpdateQuantity = debounce(500, quantityValue =>
-    updateLineItem(client, checkout.id, item.id, quantityValue, dispatch)
-  )
+  const updateQuantity = async quantity => {
+    if (!quantity) {
+      return
+    }
+    await updateLineItem(client, checkout.id, item.id, quantity, dispatch)
+    setCartLoading(false)
+  }
 
   return (
     <Item>
@@ -193,21 +198,19 @@ const LineItem = ({ item, setCartLoading }) => {
         name="quantity"
         min="1"
         step="1"
-        onChange={event => {
-          setQuantity(event.target.value)
+        onChange={({ target }) => {
+          if (isCartLoading) return
+          const value = target.value
+          setQuantity(value)
           setCartLoading(true)
-          if (event.target.value.trim() !== '')
-            debouncedUpdateQuantity(event.target.value)
+          updateQuantity(value)
         }}
         value={quantity}
       />
       <Remove
         href="#remove"
         title="Remove this item from your cart."
-        onClick={e => {
-          setCartLoading(true)
-          handleRemove(e)
-        }}
+        onClick={e => handleRemove(e)}
       >
         &times;
       </Remove>

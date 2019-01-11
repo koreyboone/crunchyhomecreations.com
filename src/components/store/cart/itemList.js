@@ -9,10 +9,10 @@ const ItemList = styled.ul`
   padding: 0;
 `
 
-export default ({ items, setCartLoading }) => (
+export default ({ items, setCartLoading, isLoading }) => (
   <ItemList>
     {items.map(item => (
-      <LineItem key={item.id} item={item} setCartLoading={setCartLoading} />
+      <LineItem key={item.id} item={item} setCartLoading={setCartLoading} isCartLoading={isLoading} />
     ))}
   </ItemList>
 )

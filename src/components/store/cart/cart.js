@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from '@emotion/styled'
 import onClickOutside from 'react-onclickoutside'
 
 import { withStoreContext } from '../storeContext'
@@ -14,10 +13,10 @@ class Cart extends React.PureComponent {
 
   render() {
     return (
-      <>
+      <div>
         <MenuToggle />
         <CartPreview />
-      </>
+      </div>
     )
   }
 }

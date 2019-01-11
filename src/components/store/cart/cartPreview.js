@@ -111,6 +111,7 @@ export default () => {
             <ItemList
               items={checkout.lineItems}
               setCartLoading={setIsLoading}
+              isCartLoading={isLoading}
             />
             <CostBlock isLoading={isLoading}>
               <CostDetails>
