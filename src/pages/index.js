@@ -3,21 +3,21 @@ import styled from '@emotion/styled'
 
 import Layout from '../components/shared/layout'
 import Store from '../components/store/store'
-import { pullHeadline, breakpoints } from '../utils/styles'
+import { fonts, breakpoints } from '../utils/styles'
 
 const Headline = styled.h1`
-  ${pullHeadline};
+  font-family: ${fonts.heading};
+  font-size: 1.5rem;
   text-align: center;
 
   @media (min-width: ${breakpoints.hd}px) {
-    padding-top: 80px;
+    font-size: 2rem;
   }
 `
 
-
 const IndexPage = () => (
   <Layout>
-    <Headline>Check out our store!</Headline>
+    <Headline>Welcome to our Crunchy Store!</Headline>
     <Store />
   </Layout>
 )

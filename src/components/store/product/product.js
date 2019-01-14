@@ -1,7 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import onClickOutside from 'react-onclickoutside'
 
-import { colors, fonts, radius, spacing, breakpoints } from '../../../utils/styles'
+import {
+  colors,
+  fonts,
+  radius,
+  spacing,
+  breakpoints,
+} from '../../../utils/styles'
 import ProductImages from './productImages'
 import AddToCart from './addToCart'
 
@@ -73,30 +81,49 @@ const ExpandText = styled.span`
   color: ${colors.brandSecondaryLight};
 `
 
-export default ({ product }) => {
-  const [descriptionExpanded, setDescriptionExpanded] = useState(false)
+class Product extends React.Component {
+  state = {
+    descriptionExpanded: false,
+  }
 
-  return (
-    <Preview>
-      <Item>
-        <ProductImages images={product.images} alt={product.title} />
-        <Name>{product.title}</Name>
-        <Price>
-          USD ${product.variants[0].price}
-          {product.variants.length !== 1 ? '+' : ''}
-        </Price>
-        <Description>
-          {descriptionExpanded
-            ? `${product.description}...`
-            : `${product.description.slice(0, 200)}...`}
-          <ExpandText
-            onClick={() => setDescriptionExpanded(!descriptionExpanded)}>
-            {' '}
-            {descriptionExpanded ? 'Less' : 'More'}
-          </ExpandText>
-        </Description>
-        <AddToCart productId={product.id} variants={product.variants} />
-      </Item>
-    </Preview>
-  )
+  handleClickOutside = event => {
+    if(this.state.descriptionExpanded){
+      this.setState({descriptionExpanded: false})
+    }
+  }
+
+  render() {
+    const { product } = this.props
+    const { descriptionExpanded } = this.state
+    return (
+      <Preview>
+        <Item>
+          <ProductImages images={product.images} alt={product.title} />
+          <Name>{product.title}</Name>
+          <Price>
+            USD ${product.variants[0].price}
+            {product.variants.length !== 1 ? '+' : ''}
+          </Price>
+          <Description>
+            {descriptionExpanded
+              ? `${product.description}...`
+              : `${product.description.slice(0, 200)}...`}
+            <ExpandText
+              onClick={() =>
+                this.setState({ descriptionExpanded: !descriptionExpanded })
+              }>
+              {descriptionExpanded ? 'Less' : 'More'}
+            </ExpandText>
+          </Description>
+          <AddToCart productId={product.id} variants={product.variants} />
+        </Item>
+      </Preview>
+    )
+  }
 }
+
+Product.propTypes = {
+  product: PropTypes.object.isRequired,
+}
+
+export default onClickOutside(Product)
