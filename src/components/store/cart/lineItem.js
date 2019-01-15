@@ -80,6 +80,14 @@ const Quantity = styled.input`
   margin-right: ${spacing.xs}px;
   /* stylelint-enable */
   max-width: calc(20% - ${spacing.xs}px);
+
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  ::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
 `
 
 const Remove = styled.a`
