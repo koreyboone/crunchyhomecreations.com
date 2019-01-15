@@ -7,16 +7,16 @@ import storeReducer from '../store/storeReducer'
 import Header from './header/header'
 import Footer from './footer/footer'
 import SEO from './seo.js'
-import { spacing } from '../../utils/styles'
 
 // Import Futura PT typeface
 import '../../fonts/futura-pt/Webfonts/futurapt_demi_macroman/stylesheet.css'
 
 const Main = styled('main')`
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   margin: 0 auto;
-  max-width: 1200px;
-  padding: ${spacing.xl}px ${spacing.sm}px ${spacing['3xl']}px;
+  width: 100%;
   position: relative;
 `
 

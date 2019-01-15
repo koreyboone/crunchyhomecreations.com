@@ -2,8 +2,8 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
-import { Subheading, Text } from '../../shared/typography'
-import { colors, breakpoints, link, pullHeadline } from '../../../utils/styles'
+import { Text } from '../../shared/typography'
+import { colors, breakpoints, link, pullHeadline, fonts } from '../../../utils/styles'
 
 const About = styled.div`
   position: relative;
@@ -14,6 +14,13 @@ const Headline = styled.h2`
   color: ${colors.brandPrimary};
   /* stylelint-enable */
   font-size: 1.75rem;
+`
+
+const Subheading = styled.h3`
+  color: ${colors.darkest};
+  font-family: ${fonts.heading};
+  font-size: 1.125rem;
+  margin: 1.5rem 0 0;
 `
 
 const Content = styled.div`
