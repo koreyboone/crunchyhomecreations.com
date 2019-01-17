@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import styled from '@emotion/styled'
+import { keyframes } from '@emotion/core'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import StoreContext from '../storeContext'
@@ -8,9 +9,20 @@ import ItemList from './itemList'
 import { colors, button, dropdown, spacing } from '../../../utils/styles'
 import { Text } from '../../shared/typography'
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`
+
 const OpenCart = styled.div`
   ${dropdown.container};
   width: 280px;
+  animation:${fadeIn} 150ms ease-out;
 `
 
 const Heading = styled.h4`
