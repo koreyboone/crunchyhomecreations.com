@@ -51,6 +51,17 @@ module.exports = {
       resolve: 'gatsby-plugin-offline',
       options: {
         offlineGoogleAnalytics: true,
+        runtimeCaching: [
+          {
+            urlPattern: /(\.js$|\.css$|static\/)/,
+            handler: `staleWhileRevalidate`,
+          },
+          {
+            // Add runtime caching of various other page resources
+            urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+            handler: `staleWhileRevalidate`,
+          },
+        ]
       },
     },
 
