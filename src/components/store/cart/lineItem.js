@@ -106,21 +106,6 @@ const Remove = styled.a`
   }
 `
 
-const debounce = (delay, fn) => {
-  let timeout
-
-  return function(...args) {
-    if (timeout) {
-      clearTimeout(timeout)
-    }
-
-    timeout = setTimeout(() => {
-      fn(...args)
-      timeout = null
-    }, delay)
-  }
-}
-
 const removeLineItem = async (client, checkoutId, lineItemId, dispatch) => {
   let updatedCheckout
 
