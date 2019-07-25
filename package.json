@@ -36,7 +36,7 @@
     "gatsby-transformer-sharp": "^2.1.17",
     "prop-types": "^15.6.2",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-onclickoutside": "^6.7.1",
     "shopify-buy": "^2.1.1"
