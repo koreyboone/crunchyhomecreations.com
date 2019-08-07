@@ -5128,6 +5128,11 @@ gatsby-core-utils@^1.0.0, gatsby-core-utils@^1.0.3:
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.3.tgz#f7616192ac0b4d0fc04587d924533c3cece70980"
   integrity sha512-01B0wqVTftFcYwVR7HGJy+Nriy+xxC++VZhsWNCFWtby1NwfSDUwkoScGcZ/jXvg9waEmBC1n70FwVIDnoHzSA==
 
+gatsby-core-utils@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.4.tgz#098b5b2f444faadd3bc9f7e20bd0a092129882ba"
+  integrity sha512-r9HhRvnaPFliO9IzN6Yz2xTsZ8vtWKvzQHz0GwW3iFe6KkhXC+Y1p8eEaorRz6AnOE6sRbWaeqpe3AA6FbKr2g==
+
 gatsby-graphiql-explorer@^0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/gatsby-graphiql-explorer/-/gatsby-graphiql-explorer-0.2.3.tgz#fdfc6c1b8b5019df57aad025badb552e3141f6e4"
@@ -5277,10 +5282,10 @@ gatsby-react-router-scroll@^2.1.3:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby-source-filesystem@^2.1.7:
-  version "2.1.7"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.1.7.tgz#ad46eec78831e69dd716cb8188e2ed7df68b9981"
-  integrity sha512-CieDkGzqjwbRJymXVoz9MIoV8li2NU7W5VWwWRWcztq1mV83PgkN7B6qkljDEuosCeFtMZbfQZKij5YugyBbkg==
+gatsby-source-filesystem@^2.1.7, gatsby-source-filesystem@^2.1.9:
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.1.9.tgz#92fa2e06565b43d3750da5136b492dae705c9792"
+  integrity sha512-3XTDdDAo7Hhs6Nt4ug7aTAkxCj28hB7IeylHrEh+QjDXAuoijvQSNucOKieoxkfUaAGWnSWbdJwQtPch7nKa8g==
   dependencies:
     "@babel/runtime" "^7.0.0"
     better-queue "^3.8.7"
@@ -5288,7 +5293,7 @@ gatsby-source-filesystem@^2.1.7:
     chokidar "2.1.2"
     file-type "^10.2.0"
     fs-extra "^5.0.0"
-    gatsby-core-utils "^1.0.0"
+    gatsby-core-utils "^1.0.4"
     got "^7.1.0"
     md5-file "^3.1.1"
     mime "^2.2.0"
@@ -5298,15 +5303,15 @@ gatsby-source-filesystem@^2.1.7:
     valid-url "^1.0.9"
     xstate "^3.1.0"
 
-gatsby-source-shopify@^2.1.9:
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/gatsby-source-shopify/-/gatsby-source-shopify-2.1.9.tgz#a7f99452f21d6fb15dfd5bcd3b8291964b720b6b"
-  integrity sha512-HKzQZbZ9fYU+R7VpnLZd+wwOaGIk2zAKvlEGkXT1B5Yb47U9x3kA//pIB4QfBu2hbbOV3cyQDTylFJvCS6VysA==
+gatsby-source-shopify@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/gatsby-source-shopify/-/gatsby-source-shopify-2.2.1.tgz#9437a98f35f5649cbbb94289c763e7c093602e2a"
+  integrity sha512-jR1s1Ql1LUytxOKISSmRCFBVhcUiUNpegmg09HGZVJ00fNnzHvWLbkIEcXU8r/qsCE4hlBBxZMfC74wZUQ9Fdw==
   dependencies:
     babel-preset-gatsby-package "^0.2.2"
     chalk "^2.4.1"
     gatsby-node-helpers "^0.3.0"
-    gatsby-source-filesystem "^2.1.7"
+    gatsby-source-filesystem "^2.1.9"
     graphql-request "^1.6.0"
     lodash "^4.17.14"
     p-iteration "^1.1.7"
