@@ -20,7 +20,7 @@
     "gatsby-plugin-sharp": "^2.2.10",
     "gatsby-source-filesystem": "^2.1.9",
     "gatsby-source-shopify": "^2.2.1",
-    "gatsby-transformer-sharp": "^2.2.5",
+    "gatsby-transformer-sharp": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
