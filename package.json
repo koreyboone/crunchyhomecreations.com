@@ -26,7 +26,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-onclickoutside": "^6.8.0",
-    "shopify-buy": "^2.6.1"
+    "shopify-buy": "^2.7.0"
   },
   "keywords": [
     "crunchy home creations, gatsby"
