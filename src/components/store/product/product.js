@@ -57,6 +57,7 @@ const Description = styled.p`
   color: ${colors.brandLighter};
   font-size: 1rem;
   line-height: 1.5;
+  min-height: 126px;
 
   @media (min-width: 650px) {
     font-size: 0.875rem;
@@ -87,8 +88,8 @@ class Product extends React.Component {
   }
 
   handleClickOutside = event => {
-    if(this.state.descriptionExpanded){
-      this.setState({descriptionExpanded: false})
+    if (this.state.descriptionExpanded) {
+      this.setState({ descriptionExpanded: false })
     }
   }
 
@@ -106,14 +107,16 @@ class Product extends React.Component {
           </Price>
           <Description>
             {descriptionExpanded
-              ? `${product.description}...`
-              : `${product.description.slice(0, 200)}...`}
-            <ExpandText
-              onClick={() =>
-                this.setState({ descriptionExpanded: !descriptionExpanded })
-              }>
-              {descriptionExpanded ? 'Less' : 'More'}
-            </ExpandText>
+              ? `${product.description}`
+              : `${product.description.slice(0, 200)}`}
+            {product.description.length >= 200 ? (
+              <ExpandText
+                onClick={() =>
+                  this.setState({ descriptionExpanded: !descriptionExpanded })
+                }>
+                {descriptionExpanded ? '...Less' : '...More'}
+              </ExpandText>
+            ) : null}
           </Description>
           <AddToCart productId={product.id} variants={product.variants} />
         </Item>

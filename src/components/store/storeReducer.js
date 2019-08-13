@@ -19,6 +19,6 @@ export default (state, action) => {
       return { ...state, isCartOpen: !state.isCartOpen }
 
     default:
-      return state
+      return state // Change this to throw new Error('Action not supported')
   }
 }
