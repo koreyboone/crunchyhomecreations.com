@@ -101,9 +101,7 @@ const IndexPage = () => (
     <GreetingContainer>
       <Headline>The Crunchy Store!</Headline>
       <Text css={textStyles}>
-        Welcome to the Crunchy Home Creations store. Check out our selection of
-        100% custom-made medal holders, [placeholder], [placeholder],
-        [placeholder], syrups and tonics.
+        Welcome to the Crunchy Home Creations store, where we strive to be your one-stop shop for all your natural, hand-crafted needs.
       </Text>
       <CallToActionContainer>
         <HandBox>

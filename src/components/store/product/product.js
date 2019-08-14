@@ -57,7 +57,7 @@ const Description = styled.p`
   color: ${colors.brandLighter};
   font-size: 1rem;
   line-height: 1.5;
-  min-height: 126px;
+  min-height: 100px;
 
   @media (min-width: 650px) {
     font-size: 0.875rem;
