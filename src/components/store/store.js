@@ -22,7 +22,7 @@ export default () => (
   <StaticQuery
     query={graphql`
       query ProductListingsQuery {
-        products: allShopifyProduct {
+        products: allShopifyProduct(sort: { order: ASC, fields: title }) {
           edges {
             node {
               id
@@ -34,6 +34,10 @@ export default () => (
                 title
                 price
                 availableForSale
+                selectedOptions {
+                  name
+                  value
+                }
               }
               images {
                 id

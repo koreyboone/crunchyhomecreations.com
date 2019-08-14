@@ -41,6 +41,10 @@ const Item = styled.article`
   padding: ${spacing.lg}px;
 `
 
+const ProductInfo = styled.div`
+  min-height: 220px;
+`
+
 const Name = styled.h3`
   color: ${colors.brandPrimary};
   font-family: ${fonts.heading};
@@ -57,7 +61,6 @@ const Description = styled.p`
   color: ${colors.brandLighter};
   font-size: 1rem;
   line-height: 1.5;
-  min-height: 100px;
 
   @media (min-width: 650px) {
     font-size: 0.875rem;
@@ -85,6 +88,8 @@ const ExpandText = styled.span`
 class Product extends React.Component {
   state = {
     descriptionExpanded: false,
+    variantSelected: false,
+    price: this.props.product.variants[0].price
   }
 
   handleClickOutside = event => {
@@ -93,32 +98,42 @@ class Product extends React.Component {
     }
   }
 
+  updatePrice = price => {
+    this.setState({price, variantSelected: true})
+  }
+
   render() {
     const { product } = this.props
-    const { descriptionExpanded } = this.state
+    const { descriptionExpanded, variantSelected, price} = this.state
     return (
       <Preview>
         <Item>
           <ProductImages images={product.images} alt={product.title} />
-          <Name>{product.title}</Name>
-          <Price>
-            USD ${product.variants[0].price}
-            {product.variants.length !== 1 ? '+' : ''}
-          </Price>
-          <Description>
-            {descriptionExpanded
-              ? `${product.description}`
-              : `${product.description.slice(0, 200)}`}
-            {product.description.length >= 200 ? (
-              <ExpandText
-                onClick={() =>
-                  this.setState({ descriptionExpanded: !descriptionExpanded })
-                }>
-                {descriptionExpanded ? '...Less' : '...More'}
-              </ExpandText>
-            ) : null}
-          </Description>
-          <AddToCart productId={product.id} variants={product.variants} />
+          <ProductInfo>
+            <Name>{product.title}</Name>
+            <Price>
+              USD ${price}
+              {!variantSelected && product.variants.length !== 1 ? '+' : ''}
+            </Price>
+            <Description>
+              {descriptionExpanded
+                ? `${product.description}`
+                : `${product.description.slice(0, 200)}`}
+              {product.description.length >= 200 ? (
+                <ExpandText
+                  onClick={() =>
+                    this.setState({ descriptionExpanded: !descriptionExpanded })
+                  }>
+                  {descriptionExpanded ? '...Less' : '...More'}
+                </ExpandText>
+              ) : null}
+            </Description>
+          </ProductInfo>
+          <AddToCart
+            productId={product.id}
+            variants={product.variants}
+            updatePrice={this.updatePrice}
+          />
         </Item>
       </Preview>
     )

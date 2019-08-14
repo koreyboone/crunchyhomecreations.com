@@ -99,7 +99,7 @@ const addVariantToCart = async (
   dispatch({ type: 'updateCheckout', payload: { updatedCheckout } })
 }
 
-export default ({ productId, variants }) => {
+export default ({ productId, variants, updatePrice }) => {
   const defaultVariantState = variants.length === 1 ? variants[0].shopifyId : ''
   const [variant, setVariant] = useState(defaultVariantState)
   const [quantity, setQuantity] = useState(1)
@@ -109,40 +109,53 @@ export default ({ productId, variants }) => {
 
   const { dispatch, checkout, client } = useContext(StoreContext)
 
+  const handleSubmit = event => {
+    event.preventDefault()
+    if (variant === '') {
+      // TODO design a better way to show errors.
+      alert('Please select a size first.')
+      return
+    }
+    if (quantity < 1) {
+      alert('Please choose a quantity of 1 or more.')
+      return
+    }
+    addVariantToCart(dispatch, checkout.id, client, variant, quantity)
+  }
+
+  const updateVariant = e => {
+    const shopifyId = e.target.value
+    let price
+    variants.forEach(variant => {
+      if (variant.shopifyId === shopifyId) {
+        price = variant.price
+        return
+      }
+    })
+    updatePrice(price)
+    setVariant(shopifyId)
+  }
+
   return (
-    <Form
-      onSubmit={event => {
-        event.preventDefault()
-        if (variant === '') {
-          // TODO design a better way to show errors.
-          alert('Please select a size first.')
-          return
-        }
-        if (quantity < 1) {
-          alert('Please choose a quantity of 1 or more.')
-          return
-        }
-        addVariantToCart(dispatch, checkout.id, client, variant, quantity)
-      }}
-    >
+    <Form onSubmit={handleSubmit}>
       {hasVariants && (
         <>
-          <HiddenLabel htmlFor={`variant_${id}`}>Choose a size:</HiddenLabel>
+          <HiddenLabel htmlFor={`variant_${id}`}>
+            Choose a {variants[0].selectedOptions[0].name}:
+          </HiddenLabel>
           <Size
             id={`variant_${id}`}
             value={variant}
             name="variant"
-            onChange={e => setVariant(e.target.value)}
-          >
+            onChange={updateVariant}>
             <option disabled value="">
-              Choose Size
+              Choose a {variants[0].selectedOptions[0].name}
             </option>
             {variants.map(variant => (
               <option
                 disabled={!variant.availableForSale}
                 value={variant.shopifyId}
-                key={variant.shopifyId}
-              >
+                key={variant.shopifyId}>
                 {variant.title}
               </option>
             ))}
