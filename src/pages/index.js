@@ -96,8 +96,8 @@ const Discount = styled.b`
   margin-left: 4px;
 `
 
-const IndexPage = () => (
-  <Layout>
+const IndexPage = (props) => (
+  <Layout location={props.location}>
     <GreetingContainer>
       <Headline>The Crunchy Store!</Headline>
       <Text css={textStyles}>

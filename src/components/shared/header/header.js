@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import styled from '@emotion/styled'
 import { useWindowDimensions } from '../hooks/hooks'
 
@@ -62,6 +62,7 @@ export default () => {
   const [state, dispatch] = React.useContext(StoreContext)
 
   const filterProducts = collection => {
+    navigate(`/?filter=${collection}`)
     dispatch({ type: 'changeCollection', payload: collection })
   }
 

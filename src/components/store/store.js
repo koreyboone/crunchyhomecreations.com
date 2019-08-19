@@ -28,7 +28,7 @@ export default () => {
   return (
     <ProductsContainer>
       {collections
-        .filter(collection => collection.title === selectedCollection)[0]
+        .filter(collection => collection.title.toLowerCase() === selectedCollection.toLowerCase())[0]
         .products.map(product => (
           <Product key={product.id} product={product} />
         ))}

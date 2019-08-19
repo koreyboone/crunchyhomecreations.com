@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import queryString from 'query-string'
 
 import StoreContext, { defaultStoreContext } from '../store/storeContext'
 import storeReducer from '../store/storeReducer'
@@ -96,14 +97,32 @@ function useShopifyCollections() {
     }
   `)
 
-  return data.collections.edges.map(({ node: collection }) => collection)
+  const collections = data.collections.edges.map(
+    ({ node: collection }) => collection
+  )
+
+  const collectionTitles = collections.map(collection =>
+    collection.title.toLowerCase().trim()
+  )
+
+  return [collections, collectionTitles]
 }
 
-const Layout = ({ children }) => {
-  const collections = useShopifyCollections()
+const Layout = ({ children, location }) => {
+  const [collections, collectionTitles] = useShopifyCollections()
+  const values = queryString.parse(location.search)
+  let selectedCollection = defaultStoreContext.selectedCollection
+  if (
+    values.filter &&
+    collectionTitles.includes(values.filter.toLowerCase().trim())
+  ) {
+    selectedCollection = values.filter
+  }
+
   const [state, dispatch] = useReducer(storeReducer, {
     ...defaultStoreContext,
     collections,
+    selectedCollection,
   })
 
   useEffect(() => {
