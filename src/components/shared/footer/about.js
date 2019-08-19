@@ -37,9 +37,9 @@ export default () => (
     <Headline>About Crunchy Home Creations</Headline>
     <Content>
       <Text>
-        Founded by Kristi and Korey Boone, Crunchy Home Creations seeks to
-        provide high-quality custom made items. From running gear, to holistic
-        tonics and syrups, our products are sure to please, or your money back
+        Founded by Kristi Boone, Crunchy Home Creations seeks to
+        provide high-quality custom made items. From tumblers and wine glasses to holistic
+        tonics and syrups, our products are sure to please or your money back
         guaranteed.
       </Text>
       <Subheading>Questions or concerns?</Subheading>

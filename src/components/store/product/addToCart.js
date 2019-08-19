@@ -62,6 +62,7 @@ const Size = styled.select`
 
 const VisibleLabel = styled.label`
   font-size: 0.75rem;
+  font-weight: 600;
   margin-top: ${spacing.sm}px;
 `
 
@@ -107,7 +108,8 @@ export default ({ productId, variants, updatePrice }) => {
   const id = productId.substring(58, 64)
   const hasVariants = variants.length > 1
 
-  const { dispatch, checkout, client } = useContext(StoreContext)
+  const [state, dispatch] = useContext(StoreContext)
+  const {checkout, client} = state
 
   const handleSubmit = event => {
     event.preventDefault()

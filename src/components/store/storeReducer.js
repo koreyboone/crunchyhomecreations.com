@@ -18,7 +18,13 @@ export default (state, action) => {
     case 'toggleCart':
       return { ...state, isCartOpen: !state.isCartOpen }
 
+    case 'initializeCollections':
+      return { ...state, collections: action.payload }
+
+    case 'changeCollection':
+      return { ...state, selectedCollection: action.payload }
+
     default:
-      return state // Change this to throw new Error('Action not supported')
+      throw new Error('Action not supported')
   }
 }

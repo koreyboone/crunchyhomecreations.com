@@ -8,14 +8,13 @@ import { button, colors, spacing } from '../../../utils/styles'
 const Button = styled.button`
   ${button.default};
   ${button.ghost};
-  ${button.small};
   /* stylelint-disable */
   align-items: center;
   /* stylelint-enable */
   display: flex;
   justify-content: space-between;
-  margin-left: ${spacing.sm}px;
   position: relative;
+  padding: 0;
 `
 
 const ButtonCount = styled.span`
@@ -35,14 +34,16 @@ const ButtonCount = styled.span`
 `
 
 export default () => {
-  const { checkout, dispatch } = useContext(StoreContext)
+  const [state, dispatch] = useContext(StoreContext)
+  const { checkout } = state
   const itemsInCart = checkout.lineItems.reduce(
-    (total, item) => total + item.quantity, 0)
+    (total, item) => total + item.quantity,
+    0
+  )
   return (
     <Button
       aria-label={`Shopping cart with ${itemsInCart} items`}
-      onClick={() => dispatch({ type: 'toggleCart' })}
-    >
+      onClick={() => dispatch({ type: 'toggleCart' })}>
       <Icon />
       <ButtonCount>{itemsInCart}</ButtonCount>
     </Button>

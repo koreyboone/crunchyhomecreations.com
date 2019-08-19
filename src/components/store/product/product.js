@@ -20,17 +20,12 @@ const Preview = styled.div`
   margin-bottom: ${spacing.lg}px;
   overflow: hidden;
   text-decoration: none;
-
-  @media (min-width: ${breakpoints.tablet}px) {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 500px;
-  }
+  width: 100%;
+  max-width: 500px;
 
   @media (min-width: ${breakpoints.desktop}px) {
     flex-basis: 300px;
-    justify-content: center;
-    margin: ${spacing.md * 1.25}px;
+    margin: ${spacing.sm * 1.25}px;
   }
 `
 
@@ -42,7 +37,9 @@ const Item = styled.article`
 `
 
 const ProductInfo = styled.div`
-  min-height: 220px;
+  @media (min-width: ${breakpoints.desktop}px) {
+    min-height: 248px;
+  }
 `
 
 const Name = styled.h3`
@@ -89,7 +86,7 @@ class Product extends React.Component {
   state = {
     descriptionExpanded: false,
     variantSelected: false,
-    price: this.props.product.variants[0].price
+    price: this.props.product.variants[0].price,
   }
 
   handleClickOutside = event => {
@@ -99,12 +96,12 @@ class Product extends React.Component {
   }
 
   updatePrice = price => {
-    this.setState({price, variantSelected: true})
+    this.setState({ price, variantSelected: true })
   }
 
   render() {
     const { product } = this.props
-    const { descriptionExpanded, variantSelected, price} = this.state
+    const { descriptionExpanded, variantSelected, price } = this.state
     return (
       <Preview>
         <Item>

@@ -1,11 +1,20 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
 
-import { colors } from '../../../utils/styles'
+import { colors, breakpoints} from '../../../utils/styles'
 
 const svg = css`
-  display: inline-block;
   height: 48px;
+`
+
+const image = css`
+  display: inline-block;
+  height: 28px;
+  margin-right: 10px;
+
+  @media (max-width: ${breakpoints.desktop}px) {
+    display: none;
+  }
 `
 
 const logoContainer = css`
@@ -17,11 +26,7 @@ const logoContainer = css`
 const Monogram = () => (
   <svg
     viewBox="0 0 512 512"
-    css={css`
-      display: inline-block;
-      height: 28px;
-      margin-right: 10px;
-    `}
+    css={image}
   >
     <path
       fill={colors.brandPrimary}
@@ -139,15 +144,30 @@ const Monogram = () => (
 )
 
 const Logo = () => (
-  <svg viewBox="0 0 130 28" css={svg}>
+  <svg viewBox="0 0 135 30" css={svg}>
     <text
       x="0"
       y="20"
-      textLength="130"
+      textLength="50"
       lengthAdjust="spacingAndGlyphs"
-      fill={colors.brandPrimary}
-    >
-      Crunchy Home Creations
+      fill={colors.brandPrimary}>
+      crunchy
+    </text>
+    <text
+      x="50"
+      y="20"
+      textLength="30"
+      lengthAdjust="spacingAndGlyphs"
+      fill={colors.brandSecondaryLight}>
+      home
+    </text>
+    <text
+      x="80"
+      y="20"
+      textLength="55"
+      lengthAdjust="spacingAndGlyphs"
+      fill={colors.brandPrimary}>
+      creations
     </text>
   </svg>
 )

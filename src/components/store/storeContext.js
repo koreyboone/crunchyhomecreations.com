@@ -10,7 +10,8 @@ export const defaultStoreContext = {
   client,
   isCartOpen: false,
   checkout: { lineItems: [] },
-  products: [],
+  collections: [],
+  selectedCollection: 'All',
   shop: {},
 }
 

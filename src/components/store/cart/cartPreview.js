@@ -22,7 +22,7 @@ const fadeIn = keyframes`
 const OpenCart = styled.div`
   ${dropdown.container};
   width: 280px;
-  animation:${fadeIn} 150ms ease-out;
+  animation: ${fadeIn} 150ms ease-out;
 `
 
 const Heading = styled.h4`
@@ -105,7 +105,8 @@ const CloseCartButton = styled.button`
 `
 
 export default () => {
-  const { checkout, isCartOpen, dispatch } = useContext(StoreContext)
+  const [state, dispatch] = useContext(StoreContext)
+  const {checkout, isCartOpen} = state
   const [isLoading, setIsLoading] = useState(false)
 
   const toggleCart = () => dispatch({ type: 'toggleCart' })

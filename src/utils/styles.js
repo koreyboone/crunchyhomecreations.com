@@ -50,10 +50,10 @@ export const spacing = {
 }
 
 export const breakpoints = {
-  mobile: 400,
+  mobile: 425,
   phablet: 550,
-  tablet: 750,
-  desktop: 1000,
+  tablet: 768,
+  desktop: 1024,
   hd: 1200,
 }
 

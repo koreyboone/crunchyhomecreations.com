@@ -145,7 +145,8 @@ const updateLineItem = async (
 
 const LineItem = ({ item, setCartLoading, isCartLoading }) => {
   const [quantity, setQuantity] = useState(item.quantity || 1)
-  const { dispatch, client, checkout } = useContext(StoreContext)
+  const [state, dispatch] = useContext(StoreContext)
+  const {client, checkout} = state
 
   // equivalent to componentWillUnmount()
   useLayoutEffect(
