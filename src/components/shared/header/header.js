@@ -46,7 +46,8 @@ const DesktopMenu = styled.nav`
 const MenuItem = styled.li`
   list-style: none;
   margin-right:1.2rem;
-  color: ${colors.brandPrimary};
+   color: ${props =>
+     props.isActive ? colors.brandSecondaryLight : colors.brandPrimary};
   font-family: ${fonts.body};
   font-size: 1.1rem;
 
@@ -80,14 +81,16 @@ export default () => {
           </HomeLink>
           <DesktopMenu>
             <MenuItem
-              onClick={() => filterProducts('All')}>
+              onClick={() => filterProducts('All')}
+              isActive={state.selectedCollection === 'All'}>
               All
             </MenuItem>
             {state.collections.map((collection, index) =>
               collection.title !== 'All' ? (
                 <MenuItem
                   key={`${collection}_${index}`}
-                  onClick={() => filterProducts(collection.title)}>
+                  onClick={() => filterProducts(collection.title)}
+                  isActive={state.selectedCollection === collection.title}>
                   {collection.title}
                 </MenuItem>
               ) : null
