@@ -32,7 +32,7 @@ const Bar = styled.span`
     background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 
   transform: ${props =>
-    props.toggled ? 'rotate(45deg) translate(-7px, -1px)' : ''};
+    props.toggled ? 'rotate(45deg) translate(-2px, -1px)' : ''};
 
   :first-of-type {
     margin-top: 5px;.
@@ -42,7 +42,7 @@ const Bar = styled.span`
   :nth-last-of-type(1) {
     transform-origin: 0% 100%;
     transform: ${props =>
-      props.toggled ? 'rotate(-45deg) translate(-2px, -1px)' : ''};
+      props.toggled ? 'rotate(-45deg) translate(-1px, 0px)' : ''};
   }
 
   :nth-last-of-type(2) {
