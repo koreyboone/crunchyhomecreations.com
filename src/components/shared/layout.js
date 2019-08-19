@@ -110,14 +110,18 @@ function useShopifyCollections() {
 
 const Layout = ({ children, location }) => {
   const [collections, collectionTitles] = useShopifyCollections()
-  const values = queryString.parse(location.search)
   let selectedCollection = defaultStoreContext.selectedCollection
-  if (
-    values.filter &&
-    collectionTitles.includes(values.filter.toLowerCase().trim())
-  ) {
-    selectedCollection = values.filter
-  }
+
+  useEffect(() => {
+    const values = queryString.parse(location.search)
+    if (
+      values.filter &&
+      collectionTitles.includes(values.filter.toLowerCase().trim())
+    ) {
+      selectedCollection = values.filter
+    }
+  }, [])
+
 
   const [state, dispatch] = useReducer(storeReducer, {
     ...defaultStoreContext,
