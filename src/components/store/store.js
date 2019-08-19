@@ -22,7 +22,6 @@ const ProductsContainer = styled.div`
 `
 
 export default () => {
-
   const [state] = React.useContext(StoreContext)
   const { collections, selectedCollection } = state
 

@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { useWindowDimensions } from '../hooks/hooks'
-import { FaBars } from 'react-icons/fa'
 
 import Cart from '../../store/cart/cart'
 import Logo from './logo'
 import { colors, spacing, breakpoints, fonts } from '../../../utils/styles'
 import StoreContext from '../../store/storeContext'
+import MobileMenu from './mobileMenu'
 
 const Header = styled.header`
   background-color: ${colors.lightest};
@@ -45,22 +45,15 @@ const DesktopMenu = styled.nav`
 
 const MenuItem = styled.li`
   list-style: none;
-  margin-right:1.2rem;
-   color: ${props =>
-     props.isActive ? colors.brandSecondaryLight : colors.brandPrimary};
+  margin-right: 1.2rem;
+  color: ${props =>
+    props.isActive ? colors.brandSecondaryLight : colors.brandPrimary};
   font-family: ${fonts.body};
   font-size: 1.1rem;
 
   :hover {
-  color: ${colors.brandSecondaryLight};
-  transition: all 300ms ease;
-
-  :active {
     color: ${colors.brandSecondaryLight};
-  }
-`
-
-const MobileMenu = styled(FaBars)`
+    transition: all 300ms ease;
   }
 `
 
@@ -80,21 +73,14 @@ export default () => {
             <Logo />
           </HomeLink>
           <DesktopMenu>
-            <MenuItem
-              onClick={() => filterProducts('All')}
-              isActive={state.selectedCollection === 'All'}>
-              All
-            </MenuItem>
-            {state.collections.map((collection, index) =>
-              collection.title !== 'All' ? (
-                <MenuItem
-                  key={`${collection}_${index}`}
-                  onClick={() => filterProducts(collection.title)}
-                  isActive={state.selectedCollection === collection.title}>
-                  {collection.title}
-                </MenuItem>
-              ) : null
-            )}
+            {state.collections.map((collection, index) => (
+              <MenuItem
+                key={`${collection}_${index}`}
+                onClick={() => filterProducts(collection.title)}
+                isActive={state.selectedCollection === collection.title}>
+                {collection.title}
+              </MenuItem>
+            ))}
           </DesktopMenu>
           <Cart />
         </InnerContainer>
@@ -105,7 +91,9 @@ export default () => {
   return (
     <Header>
       <InnerContainer>
-        <MobileMenu size={20}>Menu</MobileMenu>
+        <MobileMenu size={20} filterProducts={filterProducts}>
+          Menu
+        </MobileMenu>
         <HomeLink to="/">
           <Logo />
         </HomeLink>
