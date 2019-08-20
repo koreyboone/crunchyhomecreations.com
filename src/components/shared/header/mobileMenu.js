@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 import StoreContext from '../../store/storeContext'
-import { colors, spacing, fonts } from '../../../utils/styles'
+import { colors, fonts } from '../../../utils/styles'
 
 const MenuToggle = styled.div`
   display: flex;
@@ -11,7 +11,6 @@ const MenuToggle = styled.div`
   user-select: none;
   align-items: center;
   justify-content: center;
-
   width: 40px;
   height: 32px;
   cursor: pointer;
@@ -35,8 +34,8 @@ const Bar = styled.span`
     props.toggled ? 'rotate(45deg) translate(-2px, -1px)' : ''};
 
   :first-of-type {
-    margin-top: 5px;.
-    transform-origin: 0% 0%;
+    margin-top: 5px;
+    . transform-origin: 0% 0%;
   }
 
   :nth-last-of-type(1) {

@@ -110,7 +110,11 @@ function useShopifyCollections() {
 
 const Layout = ({ children, location }) => {
   const [collections, collectionTitles] = useShopifyCollections()
-  let selectedCollection = defaultStoreContext.selectedCollection
+
+   const [state, dispatch] = useReducer(storeReducer, {
+     ...defaultStoreContext,
+     collections,
+   })
 
   useEffect(() => {
     const values = queryString.parse(location.search)
@@ -118,16 +122,11 @@ const Layout = ({ children, location }) => {
       values.filter &&
       collectionTitles.includes(values.filter.toLowerCase().trim())
     ) {
-      selectedCollection = values.filter
+      console.log(values.filter)
+      dispatch({ type: 'changeCollection', payload: values.filter.trim() })
     }
   }, [])
 
-
-  const [state, dispatch] = useReducer(storeReducer, {
-    ...defaultStoreContext,
-    collections,
-    selectedCollection,
-  })
 
   useEffect(() => {
     initializeCheckout(state.client)
@@ -135,7 +134,7 @@ const Layout = ({ children, location }) => {
         dispatch({ type: 'initializeCheckout', payload: checkout })
       })
       .catch(e => console.error('Could not initialize checkout\n', e))
-  }, [dispatch])
+  }, [])
 
   const contextValues = [state, dispatch]
 
