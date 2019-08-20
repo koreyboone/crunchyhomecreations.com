@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import { breakpoints, colors, spacing } from '../../utils/styles'
+import { breakpoints, colors, spacing, pullHeadline } from '../../utils/styles'
 
 export const TextContainer = styled.div`
   margin: 0;
@@ -18,8 +18,16 @@ export const Heading = styled.h1`
   color: ${colors.brandDark};
   font-size: 2.6rem;
   letter-spacing: -0.02em;
-  margin: 0;
+  margin: 1rem 0 0;
   margin-bottom: ${spacing.lg}px;
+`
+
+export const Headline = styled.h2`
+  ${pullHeadline};
+  /* stylelint-disable */
+  color: ${colors.brandPrimary};
+  /* stylelint-enable */
+  font-size: 1.75rem;
 `
 
 export const Text = styled.p`

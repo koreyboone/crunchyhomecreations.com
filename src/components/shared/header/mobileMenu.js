@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { navigate } from 'gatsby'
 
 import StoreContext from '../../store/storeContext'
 import { colors, fonts } from '../../../utils/styles'
@@ -62,7 +63,7 @@ const Menu = styled.ul`
   margin: 0;
   position: absolute;
   padding: 50px;
-  padding-top: 125px;
+  padding-top: 4rem;
   -webkit-font-smoothing: antialiased;
   transform-origin: 0% 0%;
   transform: ${props => (!props.toggled ? 'translate(-100%, 0)' : 'none')};
@@ -71,44 +72,59 @@ const Menu = styled.ul`
 `
 
 const MenuItem = styled.li`
-  color: ${props =>
-    props.isActive ? colors.brandSecondaryLight : colors.brandPrimary};
+  color: ${colors.brandPrimary};
   font-family: ${fonts.heading};
   font-size: 1.5rem;
-  font-weight: 500;
-  padding: 10px 0;
+  margin: .75rem 0;
   transition-delay: 2s;
 `
 
-const MenuHeading = styled.h1`
+const ExternalLink = styled.a`
   color: ${colors.brandPrimary};
   font-family: ${fonts.heading};
-  font-weight: 500;
-  padding: 10px 0;
+  font-size: 1.5rem;
+  margin: 0.75rem 0;
   transition-delay: 2s;
+  text-decoration: none;
+`
+const MenuHeading = styled.h3`
+  color: ${colors.brandSecondaryLight};
+  font-family: ${fonts.heading};
+  transition-delay: 2s;
+  margin-top: 2rem;
 `
 
 export default ({ filterProducts }) => {
   const [state] = React.useContext(StoreContext)
   const [toggled, setToggled] = React.useState(false)
 
-  const { collections, selectedCollection } = state
+  const { collections } = state
 
   return (
     <React.Fragment>
       <Menu toggled={toggled}>
-        <MenuHeading>Filters</MenuHeading>
+        <MenuHeading>Browse</MenuHeading>
         {collections.map((collection, index) => (
           <MenuItem
             key={`${collection}_${index}`}
             onClick={() => {
               setToggled(false)
               filterProducts(collection.title)
-            }}
-            isActive={selectedCollection === collection.title}>
+            }}>
             {collection.title}
           </MenuItem>
         ))}
+        <MenuHeading>More</MenuHeading>
+        <MenuItem
+          onClick={() => {
+            setToggled(false)
+            navigate('/support')
+          }}>
+          FAQs
+        </MenuItem>
+        <ExternalLink href="https://www.facebook.com/Crunchy-Home-Creations-335705617180868/">
+          Facebook
+        </ExternalLink>
       </Menu>
       <MenuToggle onClick={() => setToggled(!toggled)}>
         <Bar toggled={toggled} />

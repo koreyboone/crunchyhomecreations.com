@@ -117,12 +117,14 @@ const Layout = ({ children, location }) => {
   })
 
   useEffect(() => {
-    const values = queryString.parse(location.search)
-    if (
-      values.filter &&
-      collectionTitles.includes(values.filter.toLowerCase().trim())
-    ) {
-      dispatch({ type: 'changeCollection', payload: values.filter.trim() })
+    if (location) {
+      const values = queryString.parse(location.search)
+      if (
+        values.filter &&
+        collectionTitles.includes(values.filter.toLowerCase().trim())
+      ) {
+        dispatch({ type: 'changeCollection', payload: values.filter.trim() })
+      }
     }
   }, [])
 

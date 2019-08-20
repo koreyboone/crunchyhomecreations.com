@@ -46,8 +46,7 @@ const DesktopMenu = styled.nav`
 const MenuItem = styled.li`
   list-style: none;
   margin-right: 1.2rem;
-  color: ${props =>
-    props.isActive ? colors.brandSecondaryLight : colors.brandPrimary};
+  color: ${colors.brandPrimary};
   font-family: ${fonts.body};
   font-size: 1.1rem;
 
@@ -77,11 +76,11 @@ export default () => {
             {state.collections.map((collection, index) => (
               <MenuItem
                 key={`${collection}_${index}`}
-                onClick={() => filterProducts(collection.title)}
-                isActive={state.selectedCollection === collection.title}>
+                onClick={() => filterProducts(collection.title)}>
                 {collection.title}
               </MenuItem>
             ))}
+            <MenuItem onClick={() => navigate('/support')}>FAQs</MenuItem>
           </DesktopMenu>
           <Cart />
         </InnerContainer>
