@@ -22,8 +22,7 @@ const Footer = styled.div`
 const Legal = styled.p`
   color: ${colors.brandLighter};
   font-size: 0.875rem;
-  margin-bottom: ${spacing['2xl'] * 2}px;
-  margin-top: ${spacing['2xl'] * 3}px;
+  margin-top: ${spacing['2xl']}px;
 `
 
 const Link = styled(OutboundLink)`
