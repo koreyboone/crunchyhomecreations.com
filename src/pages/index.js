@@ -1,12 +1,17 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/core'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import Layout from '../components/shared/layout'
 import Store from '../components/store/store'
-import { fonts, spacing, colors, radius } from '../utils/styles'
+import { fonts, link, spacing, colors, radius } from '../utils/styles'
 import { Text } from '../components/shared/typography'
 import Hand from '../components/store/hand'
+
+const Link = styled(OutboundLink)`
+  ${link};
+`
 
 const GreetingContainer = styled.header`
   display: flex;
@@ -96,12 +101,17 @@ const Discount = styled.b`
   margin-left: 4px;
 `
 
-const IndexPage = (props) => (
+const IndexPage = props => (
   <Layout location={props.location}>
     <GreetingContainer>
       <Headline>The Crunchy Store!</Headline>
       <Text css={textStyles}>
-        Welcome to the Crunchy Home Creations store, where we strive to be your one-stop shop for all your natural, hand-crafted needs.
+        Welcome to the Crunchy Home Creations store. We just launched and are
+        still in the process of adding inventory! Please check back frequently
+        or visit us at{' '}
+        <Link target="_blank" href="https://www.facebook.com/Crunchy-Home-Creations-335705617180868/">
+          our facebook page
+        </Link> for more news and updates.
       </Text>
       <CallToActionContainer>
         <HandBox>
