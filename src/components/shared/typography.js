@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
+import { Link } from 'gatsby'
 
-import { breakpoints, colors, spacing, pullHeadline } from '../../utils/styles'
+import { breakpoints, colors, spacing, pullHeadline, button } from '../../utils/styles'
 
 export const TextContainer = styled.div`
   margin: 0;
@@ -11,6 +12,16 @@ export const TextContainer = styled.div`
 
   @media (min-width: ${breakpoints.desktop}px) {
     padding-bottom: 100px;
+  }
+`
+
+export const BackToProductsLink = styled(Link)`
+  ${button.default};
+  ${button.big};
+  border: 1px solid ${colors.brandPrimary};
+
+  @media (min-width: ${breakpoints.phablet}px) {
+    max-width: 300px;
   }
 `
 

@@ -94,11 +94,8 @@ const MenuHeading = styled.h3`
   margin-top: 2rem;
 `
 
-export default ({ filterProducts }) => {
-  const [state] = React.useContext(StoreContext)
+export default ({ filterProducts, collections }) => {
   const [toggled, setToggled] = React.useState(false)
-
-  const { collections } = state
 
   return (
     <React.Fragment>

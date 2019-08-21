@@ -5,9 +5,10 @@ import { useWindowDimensions } from '../hooks/hooks'
 
 import Cart from '../../store/cart/cart'
 import Logo from './logo'
-import { colors, spacing, breakpoints, fonts } from '../../../utils/styles'
+import { colors, spacing, breakpoints } from '../../../utils/styles'
 import StoreContext from '../../store/storeContext'
 import MobileMenu from './mobileMenu'
+import DesktopMenu from './desktopMenu'
 
 const Header = styled.header`
   background-color: ${colors.lightest};
@@ -39,23 +40,6 @@ const HomeLink = styled(Link)`
   line-height: 1;
 `
 
-const DesktopMenu = styled.nav`
-  display: flex;
-`
-
-const MenuItem = styled.li`
-  list-style: none;
-  margin-right: 1.2rem;
-  color: ${colors.brandPrimary};
-  font-family: ${fonts.body};
-  font-size: 1.1rem;
-
-  :hover {
-    color: ${colors.brandSecondaryLight};
-    transition: all 300ms ease;
-  }
-`
-
 export default () => {
   const [width] = useWindowDimensions()
   const [state, dispatch] = React.useContext(StoreContext)
@@ -72,16 +56,10 @@ export default () => {
           <HomeLink to="/">
             <Logo />
           </HomeLink>
-          <DesktopMenu>
-            {state.collections.map((collection, index) => (
-              <MenuItem
-                key={`${collection}_${index}`}
-                onClick={() => filterProducts(collection.title)}>
-                {collection.title}
-              </MenuItem>
-            ))}
-            <MenuItem onClick={() => navigate('/support')}>FAQs</MenuItem>
-          </DesktopMenu>
+          <DesktopMenu
+            collections={state.collections}
+            filterProducts={filterProducts}
+          />
           <Cart />
         </InnerContainer>
       </Header>
@@ -91,9 +69,10 @@ export default () => {
   return (
     <Header>
       <InnerContainer>
-        <MobileMenu size={20} filterProducts={filterProducts}>
-          Menu
-        </MobileMenu>
+        <MobileMenu
+          collections={state.collections}
+          filterProducts={filterProducts}
+        />
         <HomeLink to="/">
           <Logo />
         </HomeLink>

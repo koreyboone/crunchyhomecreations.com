@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 
 import Layout from '../components/shared/layout'
 import { breakpoints, spacing } from '../utils/styles'
-import { Heading } from '../components/shared/typography'
+import { Heading, BackToProductsLink } from '../components/shared/typography'
 
 const Container = styled.div`
   padding: ${spacing.lg}px ${spacing.sm}px;
@@ -32,6 +32,7 @@ const Summary = styled.summary`
 const Support = () => (
   <Layout>
     <Container>
+      <BackToProductsLink to="/">← &nbsp; Back to Product Listings</BackToProductsLink>
       <Heading>FAQs</Heading>
       <Details>
         <Summary>Why won't my credit card work?</Summary>
