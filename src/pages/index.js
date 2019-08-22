@@ -102,16 +102,19 @@ const Discount = styled.b`
 `
 
 const IndexPage = props => (
-  <Layout location={props.location}>
+  <>
     <GreetingContainer>
       <Headline>The Crunchy Store!</Headline>
       <Text css={textStyles}>
         Welcome to the Crunchy Home Creations store. We just launched and are
         still in the process of adding inventory! Please check back frequently
         or visit us at{' '}
-        <Link target="_blank" href="https://www.facebook.com/Crunchy-Home-Creations-335705617180868/">
+        <Link
+          target="_blank"
+          href="https://www.facebook.com/Crunchy-Home-Creations-335705617180868/">
           our facebook page
-        </Link> for more news and updates.
+        </Link>{' '}
+        for more news and updates.
       </Text>
       <CallToActionContainer>
         <HandBox>
@@ -125,7 +128,7 @@ const IndexPage = props => (
       </CallToActionContainer>
     </GreetingContainer>
     <Store />
-  </Layout>
+  </>
 )
 
 export default IndexPage

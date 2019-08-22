@@ -12,7 +12,6 @@ const FooterContainer = styled.footer`
   background-position: 50% 0;
   background-repeat: no-repeat;
   padding: ${spacing.sm}px;
-  padding-top: ${spacing.lg}px;
 `
 
 const Footer = styled.div`

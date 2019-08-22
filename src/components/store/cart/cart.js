@@ -7,8 +7,8 @@ import CartPreview from './cartPreview'
 
 class Cart extends React.PureComponent {
   handleClickOutside = event => {
-    const { dispatch, isCartOpen } = this.props.storeContext
-    isCartOpen && dispatch({ type: 'toggleCart'})
+    const [state, dispatch] = this.props.storeContext
+    state.isCartOpen && dispatch({ type: 'toggleCart' })
   }
 
   render() {

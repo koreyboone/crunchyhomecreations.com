@@ -2,8 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import './layout.css'
-
 export default () => {
   const { site } = useStaticQuery(graphql`
     query DefaultSEOQuery {

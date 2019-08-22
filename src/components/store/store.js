@@ -8,16 +8,18 @@ import { breakpoints, spacing } from '../../utils/styles'
 const ProductsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
   padding: ${spacing.lg}px;
-  padding-top: 0px;
+
+  @media (max-width: ${breakpoints.desktop}px) {
+    align-items: center;
+  }
 
   @media (min-width: ${breakpoints.desktop}px) {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+
     padding: ${spacing['2xl']}px;
-    padding-top: 0;
   }
 `
 

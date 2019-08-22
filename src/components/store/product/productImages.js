@@ -58,30 +58,31 @@ export default ({ alt, images }) => {
     return
   }
 
-  let handleImageClick = (e, index) => {
-    e.preventDefault()
-    setImageIndex(index)
-  }
+  // let handleImageClick = (e, index) => {
+  //   e.preventDefault()
+  //   setImageIndex(index)
+  // }
 
   return (
     <>
       <ImageContainer>
         <Image fluid={currentImage.localFile.childImageSharp.fluid} alt={alt} />
       </ImageContainer>
-      <PreviewWrapper>
-        {images.map((image, index) => {
-          return (
-            <ImageLink
-              key={image.id}
-              css={index === imageIndex ? selectedImage : ''}
-              onClick={e => handleImageClick(e, index)}
-              href={image.localFile.childImageSharp.fluid.src}
-            >
-              <Image fluid={image.localFile.childImageSharp.fluid} alt={alt} />
-            </ImageLink>
-          )
-        })}
-      </PreviewWrapper>
+      {
+      // <PreviewWrapper>
+      //   {images.map((image, index) => {
+      //     return (
+      //       <ImageLink
+      //         key={image.id}
+      //         css={index === imageIndex ? selectedImage : ''}
+      //         onClick={e => handleImageClick(e, index)}
+      //         href={image.localFile.childImageSharp.fluid.src}>
+      //         <Image fluid={image.localFile.childImageSharp.fluid} alt={alt} />
+      //       </ImageLink>
+      //     )
+      //   })}
+      // </PreviewWrapper>
+      }
     </>
   )
 }

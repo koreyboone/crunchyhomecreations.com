@@ -1,7 +1,7 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import onClickOutside from 'react-onclickoutside'
 
 import {
   colors,
@@ -11,21 +11,41 @@ import {
   breakpoints,
 } from '../../../utils/styles'
 import ProductImages from './productImages'
-import AddToCart from './addToCart'
 
-const Preview = styled.div`
+const ViewProduct = styled.span`
+  color: ${colors.brandSecondaryLight};
+  font-size: 0.9rem;
+  transition: all 250ms linear;
+  text-align: right;
+`
+
+const Preview = styled(Link)`
   background: ${colors.lightest};
   border-radius: ${radius.large}px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   margin-bottom: ${spacing.lg}px;
   overflow: hidden;
   text-decoration: none;
-  width: 100%;
-  max-width: 500px;
+  transition: all 250ms ease 0s;
+
+  @media (min-width: ${breakpoints.tablet}px) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+  }
 
   @media (min-width: ${breakpoints.desktop}px) {
     flex-basis: 300px;
-    margin: ${spacing.sm * 1.25}px;
+    justify-content: center;
+    margin: ${spacing.md * 1.25}px;
+  }
+
+  :hover {
+    background: rgb(252, 252, 255);
+
+    ${ViewProduct} {
+      margin-right: 10px;
+    }
   }
 `
 
@@ -36,32 +56,33 @@ const Item = styled.article`
   padding: ${spacing.lg}px;
 `
 
-const ProductInfo = styled.div`
-  @media (min-width: ${breakpoints.desktop}px) {
-    min-height: 248px;
-  }
+const ImageWrapper = styled.div`
+  position: relative;
+  border-bottom: 1px solid rgb(245, 243, 247);
+  border-radius: 4px 4px 0px 0px;
+  margin: -24px -24px 24px;
+  overflow: hidden;
 `
 
 const Name = styled.h3`
   color: ${colors.brandPrimary};
   font-family: ${fonts.heading};
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin: 1rem 0 0;
-
-  @media (min-width: 650px) {
-    font-size: 1.25rem;
-  }
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin: 0px;
 `
 
 const Description = styled.p`
   color: ${colors.brandLighter};
+  flex-grow: 1;
   font-size: 1rem;
   line-height: 1.5;
-
-  @media (min-width: 650px) {
-    font-size: 0.875rem;
-  }
+`
+const PriceAndViewProductWrapper = styled.div`
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
 `
 
 const Price = styled.p`
@@ -77,68 +98,33 @@ const Price = styled.p`
   }
 `
 
-const ExpandText = styled.span`
-  font-weight: 500;
-  color: ${colors.brandSecondaryLight};
-`
+const Product = ({ product }) => (
+  <Preview to={`/product/${product.handle}/`}>
+    <Item>
+      <ImageWrapper>
+        <ProductImages images={product.images} alt={product.title} />
+      </ImageWrapper>
+      <Name>{product.title}</Name>
 
-class Product extends React.Component {
-  state = {
-    descriptionExpanded: false,
-    variantSelected: false,
-    price: this.props.product.variants[0].price,
-  }
-
-  handleClickOutside = event => {
-    if (this.state.descriptionExpanded) {
-      this.setState({ descriptionExpanded: false })
-    }
-  }
-
-  updatePrice = price => {
-    this.setState({ price, variantSelected: true })
-  }
-
-  render() {
-    const { product } = this.props
-    const { descriptionExpanded, variantSelected, price } = this.state
-    return (
-      <Preview>
-        <Item>
-          <ProductImages images={product.images} alt={product.title} />
-          <ProductInfo>
-            <Name>{product.title}</Name>
-            <Price>
-              USD ${price}
-              {!variantSelected && product.variants.length !== 1 ? '+' : ''}
-            </Price>
-            <Description>
-              {descriptionExpanded
-                ? `${product.description}`
-                : `${product.description.slice(0, 200)}`}
-              {product.description.length >= 200 ? (
-                <ExpandText
-                  onClick={() =>
-                    this.setState({ descriptionExpanded: !descriptionExpanded })
-                  }>
-                  {descriptionExpanded ? '...Less' : '...More'}
-                </ExpandText>
-              ) : null}
-            </Description>
-          </ProductInfo>
-          <AddToCart
-            productId={product.id}
-            variants={product.variants}
-            updatePrice={this.updatePrice}
-          />
-        </Item>
-      </Preview>
-    )
-  }
-}
+      <Description>
+        {`${product.description.slice(0, 100)}`}
+        {product.description.length >= 100 ? '...' : null}
+      </Description>
+      <PriceAndViewProductWrapper>
+        <Price>
+          USD ${product.variants[0].price}
+          {product.variants.length !== 1 ? '+' : ''}
+        </Price>
+        <ViewProduct>
+          View Details <br /> & Buy →
+        </ViewProduct>
+      </PriceAndViewProductWrapper>
+    </Item>
+  </Preview>
+)
 
 Product.propTypes = {
   product: PropTypes.object.isRequired,
 }
 
-export default onClickOutside(Product)
+export default Product

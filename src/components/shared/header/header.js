@@ -45,6 +45,7 @@ export default () => {
   const [state, dispatch] = React.useContext(StoreContext)
 
   const filterProducts = collection => {
+
     navigate(`/?filter=${collection}`)
     dispatch({ type: 'changeCollection', payload: collection })
   }

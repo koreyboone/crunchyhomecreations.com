@@ -19,10 +19,8 @@ export const BackToProductsLink = styled(Link)`
   ${button.default};
   ${button.big};
   border: 1px solid ${colors.brandPrimary};
-
-  @media (min-width: ${breakpoints.phablet}px) {
-    max-width: 300px;
-  }
+  margin: ${spacing.sm}px 0px;
+  width: 100%;
 `
 
 export const Heading = styled.h1`

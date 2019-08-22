@@ -168,27 +168,29 @@ export const visuallyHidden = css`
 `
 
 export const input = {
-  default: css`
-    background-color: ${colors.lightest};
-    border: 1px solid ${colors.brandBright};
-    border-radius: ${radius.default}px;
-    box-sizing: border-box;
-    color: ${colors.text};
-    display: block;
-    font-size: 1rem;
-    padding: ${spacing.xs}px ${spacing.sm}px;
-  `,
-  small: css`
-    font-size: 0.75rem;
-    padding: ${spacing.xs}px;
-  `,
-  focus: css`
-    border-color: ${colors.brandLighter};
-    box-shadow: 0 0 0 3px ${colors.brandBright};
-    outline: 0;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  `,
-}
+         default: css`
+           background-color: ${colors.lightest};
+           border: 2px solid ${colors.brandBright};
+           border-radius: ${radius.default}px;
+           box-sizing: border-box;
+           color: ${colors.text};
+           display: block;
+           font-size: 1.1rem;
+           padding: ${spacing.xs}px ${spacing.sm}px;
+           width: 100%;
+         `,
+         small: css`
+           font-size: 0.75rem;
+           padding: ${spacing.xs}px;
+         `,
+         focus: css`
+           border-color: ${colors.brandLighter};
+           box-shadow: 0 0 0 3px ${colors.brandBright};
+           outline: 0;
+           transition: border-color 0.15s ease-in-out,
+             box-shadow 0.15s ease-in-out;
+         `,
+       }
 
 export const select = {
   default: css`
@@ -245,6 +247,7 @@ export const button = {
   big: css`
     font-family: ${fonts.heading};
     font-size: 1.25rem;
+    min-height: 2.5rem;
     padding: 0.25em 0.625em;
   `,
   blue: css`

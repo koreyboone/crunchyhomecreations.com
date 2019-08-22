@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
+import { Global, css } from '@emotion/core'
 import styled from '@emotion/styled'
 import queryString from 'query-string'
 
@@ -14,14 +15,37 @@ import { breakpoints } from '../../utils/styles'
 // Import Futura PT typeface
 import '../../fonts/futura-pt/Webfonts/futurapt_demi_macroman/stylesheet.css'
 
+const globalStyles = css`
+  * {
+    box-sizing: inherit;
+  }
+
+  html {
+    box-sizing: border-box;
+  }
+
+  body {
+    color: #333333;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    margin: 0 auto;
+    line-height: 1.375;
+  }
+`
+
 const Main = styled('main')`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   margin: 0 auto;
+  min-height: calc(100vh - 60px);
+  opacity: 1;
   width: 100%;
   max-width: ${breakpoints.hd}px;
   position: relative;
+  transition: 0.75s;
+  will-change: transform;
 `
 
 const initializeCheckout = async client => {
@@ -67,6 +91,7 @@ function useShopifyCollections() {
             title
             products {
               id
+              handle
               title
               description
               productType
@@ -140,11 +165,14 @@ const Layout = ({ children, location }) => {
 
   return (
     <React.Fragment>
+      <Global styles={globalStyles} />
       <SEO />
       <StoreContext.Provider value={contextValues}>
         <Header />
-        <Main> {children} </Main>
-        <Footer />
+        <Main>
+          {children}
+          <Footer />
+        </Main>
       </StoreContext.Provider>
     </React.Fragment>
   )

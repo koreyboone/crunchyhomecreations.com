@@ -1,15 +1,13 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
+import { colors } from '../../../utils/styles'
+import CartIcon from '../cart/icon'
+
 import StoreContext from '../storeContext'
-import {
-  button,
-  visuallyHidden,
-  input,
-  select,
-  spacing,
-} from '../../../utils/styles'
+import { button, input, select, spacing } from '../../../utils/styles'
+import { BackToProductsLink } from '../../shared/typography'
 
 const Form = styled.form`
   align-items: center;
@@ -20,22 +18,15 @@ const Form = styled.form`
 
 const Button = styled.button`
   ${button.default};
-  ${button.small};
+  ${button.big};
   ${button.orange};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
-const labelStyles = css`
-  ${visuallyHidden};
-`
-
-const HiddenLabel = styled.label`
-  ${labelStyles};
-`
 const inputStyles = css`
   ${input.default};
-  /* stylelint-disable */
-  margin-top: ${spacing.sm}px;
-  /* stylelint-enable */
   width: 100%;
 
   :focus {
@@ -47,31 +38,61 @@ const inputStyles = css`
   }
 `
 
+const QuantityFieldSet = styled.fieldset`
+  display: flex;
+  flex-direction: column;
+  flex-basis: 65px;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  margin: 0px ${spacing.md}px 0px 0px;
+  padding: 0;
+`
+
+const SizeFieldSet = styled.fieldset`
+  display: flex;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  flex-basis: calc((100% - 16px) - 70px);
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  margin: 0;
+  padding: 0;
+`
+
 const Size = styled.select`
   ${inputStyles};
   ${select.default};
-  /* stylelint-disable */
-  flex: 2 70%;
-  max-width: 70%;
-  /* stylelint-enable */
 
   @media (min-width: 650px) {
     ${select.small};
   }
 `
 
-const VisibleLabel = styled.label`
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin-top: ${spacing.sm}px;
-`
-
 const Quantity = styled.input`
   ${inputStyles};
-  /* stylelint-disable */
-  flex: 1 calc(30% - ${spacing.xs}px);
-  /* stylelint-enable */
-  max-width: calc(30% - ${spacing.xs}px);
+  text-align: center;
+`
+
+const VisibleLabel = styled.label`
+  color: ${colors.brandPrimary};
+  display: flex;
+  font-size: 1rem;
+  padding: 8px;
+`
+
+const Errors = styled.div`
+  color: red;
+  width: 100%;
+  border: 1px dotted red;
+  padding: ${spacing.xs}px;
 `
 
 const addVariantToCart = async (
@@ -102,26 +123,30 @@ const addVariantToCart = async (
 
 export default ({ productId, variants, updatePrice }) => {
   const defaultVariantState = variants.length === 1 ? variants[0].shopifyId : ''
-  const [variant, setVariant] = useState(defaultVariantState)
-  const [quantity, setQuantity] = useState(1)
+  const [variant, setVariant] = React.useState(defaultVariantState)
+  const [quantity, setQuantity] = React.useState(1)
+  const [errors, setErrors] = React.useState(null)
 
   const id = productId.substring(58, 64)
   const hasVariants = variants.length > 1
 
-  const [state, dispatch] = useContext(StoreContext)
-  const {checkout, client} = state
+  const [state, dispatch] = React.useContext(StoreContext)
+  const { checkout, client } = state
+
+  const variantType = variants[0].selectedOptions[0].name
 
   const handleSubmit = event => {
     event.preventDefault()
     if (variant === '') {
       // TODO design a better way to show errors.
-      alert('Please select a size first.')
+      setErrors(`Please select a ${variantType}.`)
       return
     }
     if (quantity < 1) {
-      alert('Please choose a quantity of 1 or more.')
+      setErrors('Please choose a quantity of 1 or more.')
       return
     }
+    setErrors(null)
     addVariantToCart(dispatch, checkout.id, client, variant, quantity)
   }
 
@@ -134,24 +159,38 @@ export default ({ productId, variants, updatePrice }) => {
         return
       }
     })
+    setErrors(null)
     updatePrice(price)
     setVariant(shopifyId)
   }
 
   return (
     <Form onSubmit={handleSubmit}>
+      {errors && <Errors>{errors}</Errors>}
+      <QuantityFieldSet>
+        <VisibleLabel htmlFor={`quantity_${id}`}>Qty:</VisibleLabel>
+        <Quantity
+          type="number"
+          id={`quantity_${id}`}
+          name="quantity"
+          min="1"
+          step="1"
+          onChange={e => setQuantity(e.target.value)}
+          value={quantity}
+        />
+      </QuantityFieldSet>
       {hasVariants && (
-        <>
-          <HiddenLabel htmlFor={`variant_${id}`}>
-            Choose a {variants[0].selectedOptions[0].name}:
-          </HiddenLabel>
+        <SizeFieldSet>
+          <VisibleLabel htmlFor={`variant_${id}`}>
+            Choose a {variantType}:
+          </VisibleLabel>
           <Size
             id={`variant_${id}`}
             value={variant}
             name="variant"
             onChange={updateVariant}>
             <option disabled value="">
-              Choose a {variants[0].selectedOptions[0].name}
+              Choose a {variantType}
             </option>
             {variants.map(variant => (
               <option
@@ -162,22 +201,14 @@ export default ({ productId, variants, updatePrice }) => {
               </option>
             ))}
           </Size>
-          <HiddenLabel htmlFor={`quantity_${id}`}>Quantity:</HiddenLabel>
-        </>
+        </SizeFieldSet>
       )}
-      {!hasVariants && (
-        <VisibleLabel htmlFor={`quantity_${id}`}>Quantity:</VisibleLabel>
-      )}
-      <Quantity
-        type="number"
-        id={`quantity_${id}`}
-        name="quantity"
-        min="1"
-        step="1"
-        onChange={e => setQuantity(e.target.value)}
-        value={quantity}
-      />
-      <Button type="submit">Add to Cart</Button>
+      <Button type="submit">
+        Add to Cart &nbsp; <CartIcon />
+      </Button>
+      <BackToProductsLink to="/">
+        ← &nbsp; Back to Product Listing
+      </BackToProductsLink>
     </Form>
   )
 }

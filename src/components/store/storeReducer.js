@@ -22,7 +22,7 @@ export default (state, action) => {
       return { ...state, collections: action.payload }
 
     case 'changeCollection':
-      return { ...state, selectedCollection: action.payload }
+      return { ...state, selectedCollection: action.payload, isCartOpen: false }
 
     default:
       throw new Error('Action not supported')
