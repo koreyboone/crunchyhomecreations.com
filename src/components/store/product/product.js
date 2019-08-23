@@ -27,6 +27,7 @@ const Preview = styled(Link)`
   overflow: hidden;
   text-decoration: none;
   transition: all 250ms ease 0s;
+  width: 100%;
 
   @media (min-width: ${breakpoints.tablet}px) {
     margin-left: auto;

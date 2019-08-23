@@ -2,8 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { navigate } from 'gatsby'
 
-import StoreContext from '../../store/storeContext'
-import { colors, fonts } from '../../../utils/styles'
+import { colors, fonts, breakpoints } from '../../../utils/styles'
 
 const MenuToggle = styled.div`
   display: flex;
@@ -32,7 +31,7 @@ const Bar = styled.span`
     background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 
   transform: ${props =>
-    props.toggled ? 'rotate(45deg) translate(-2px, -1px)' : ''};
+    props.toggled ? 'rotate(45deg) translate(-2px, 0px)' : ''};
 
   :first-of-type {
     margin-top: 5px;
@@ -42,7 +41,7 @@ const Bar = styled.span`
   :nth-last-of-type(1) {
     transform-origin: 0% 100%;
     transform: ${props =>
-      props.toggled ? 'rotate(-45deg) translate(-1px, 0px)' : ''};
+      props.toggled ? 'rotate(-45deg) translate(-1px, 1px)' : ''};
   }
 
   :nth-last-of-type(2) {
@@ -56,7 +55,7 @@ const Menu = styled.ul`
   background-color: ${colors.lightest};
   box-shadow: 0 0 10px #85888c;
   height: 100vh;
-  width: 75vw;
+  width: 98vw;
   top: 0;
   left: 0;
   list-style-type: none;
@@ -69,6 +68,10 @@ const Menu = styled.ul`
   transform: ${props => (!props.toggled ? 'translate(-100%, 0)' : 'none')};
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   z-index: 1;
+
+  @media(min-width: ${breakpoints.tablet}px) {
+    width: 50vw;
+  }
 `
 
 const MenuItem = styled.li`
