@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Crunchy Home Creations`,
-    description: `Custom built, home made creations by a Crunchy family.™`,
+    title: `Oh my! Get your Hand-crafted and Natural products here!`,
+    description: `Do you like organic lip balms, bath bombs, or syrups? Custom vinyl on anything from wine glasses, to shirts and tumblers? This is the store for you! `,
     siteUrl: `https://www.crunchyhomecreations.com`,
   },
   plugins: [
