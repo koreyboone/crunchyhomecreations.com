@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/55a07bea-fb49-4a84-b61c-16364261c070/deploy-status)](https://app.netlify.com/sites/suspicious-minsky-cc091b/deploys)
+
 # Crunchy Home Creations Store
 
 This is the open source Crunchy Home Creations store.

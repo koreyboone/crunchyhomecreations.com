@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css, keyframes } from '@emotion/core'
 
 /*
  /* As hex codes */
@@ -92,6 +92,34 @@ export const fonts = {
   monospace: monospaceFontStack,
 }
 
+export const navDropdown = {
+  container: css`
+    background: ${colors.lightest};
+    border: 1px solid ${colors.brandBright};
+    border-radius: ${radius.default}px;
+    border-top-right-radius: 0;
+    box-shadow: 0 3px 8px ${colors.textLight}40;
+    box-sizing: border-box;
+    margin-top: ${spacing['2xs']}px;
+    padding: ${spacing.sm}px;
+    position: absolute;
+    top: 100%;
+  `,
+  item: css`
+    list-style: none;
+    color: ${colors.brandPrimary};
+    font-family: ${fonts.body};
+    font-size: 1.1rem;
+    margin: 0.75rem 0;
+
+    &:hover,
+    &:focus {
+      color: ${colors.brandSecondaryLight};
+      transition: all 300ms ease;
+    }
+  `,
+}
+
 export const dropdown = {
   container: css`
     background: ${colors.lightest};
@@ -103,8 +131,8 @@ export const dropdown = {
     margin-top: ${spacing['2xs']}px;
     padding: ${spacing.sm}px;
     position: absolute;
-    right: ${spacing.sm + spacing.xs}px;
     top: 100%;
+    right: 20px;
 
     &::before,
     &::after {
@@ -168,29 +196,28 @@ export const visuallyHidden = css`
 `
 
 export const input = {
-         default: css`
-           background-color: ${colors.lightest};
-           border: 2px solid ${colors.brandBright};
-           border-radius: ${radius.default}px;
-           box-sizing: border-box;
-           color: ${colors.text};
-           display: block;
-           font-size: 1.1rem;
-           padding: ${spacing.xs}px ${spacing.sm}px;
-           width: 100%;
-         `,
-         small: css`
-           font-size: 0.75rem;
-           padding: ${spacing.xs}px;
-         `,
-         focus: css`
-           border-color: ${colors.brandLighter};
-           box-shadow: 0 0 0 3px ${colors.brandBright};
-           outline: 0;
-           transition: border-color 0.15s ease-in-out,
-             box-shadow 0.15s ease-in-out;
-         `,
-       }
+  default: css`
+    background-color: ${colors.lightest};
+    border: 2px solid ${colors.brandBright};
+    border-radius: ${radius.default}px;
+    box-sizing: border-box;
+    color: ${colors.text};
+    display: block;
+    font-size: 1.1rem;
+    padding: ${spacing.xs}px ${spacing.sm}px;
+    width: 100%;
+  `,
+  small: css`
+    font-size: 0.75rem;
+    padding: ${spacing.xs}px;
+  `,
+  focus: css`
+    border-color: ${colors.brandLighter};
+    box-shadow: 0 0 0 3px ${colors.brandBright};
+    outline: 0;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  `,
+}
 
 export const select = {
   default: css`
@@ -316,5 +343,15 @@ export const pullHeadline = css`
     font-size: 3rem;
     line-height: 1;
     margin-top: 0;
+  }
+`
+
+export const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 `

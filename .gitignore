@@ -58,6 +58,9 @@ typings/
 .cache/
 public
 
+# lamdas
+lambda/
+
 # Mac files
 .DS_Store
 

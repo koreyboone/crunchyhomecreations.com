@@ -1,23 +1,12 @@
 import React, { useContext, useState } from 'react'
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import StoreContext from '../storeContext'
 import EmptyCart from './emptyCart'
 import ItemList from './itemList'
-import { colors, button, dropdown, spacing } from '../../../utils/styles'
+import { colors, button, dropdown, spacing, fadeIn } from '../../../utils/styles'
 import { Text } from '../../shared/typography'
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`
 
 const OpenCart = styled.div`
   ${dropdown.container};
@@ -93,9 +82,7 @@ const ContinueShoppingLink = styled.button`
 
 const CloseCartButton = styled.button`
   ${button.link};
-  /* stylelint-disable */
   border-bottom: 0;
-  /* stylelint-enable */
   color: ${colors.brandLighter};
   float: right;
   font-size: 1rem;
@@ -120,7 +107,7 @@ export default () => {
         </Heading>
         <Divider />
         {checkout.lineItems.length > 0 ? (
-          <>
+          <React.Fragment>
             <ItemList
               items={checkout.lineItems}
               setCartLoading={setIsLoading}
@@ -152,7 +139,7 @@ export default () => {
             <CurrencyText>
               All prices in USD. Domestic shipping only.
             </CurrencyText>
-          </>
+          </React.Fragment>
         ) : (
           <EmptyCart />
         )}

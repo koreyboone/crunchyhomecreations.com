@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, navigate } from 'gatsby'
 import styled from '@emotion/styled'
-import { useWindowDimensions } from '../hooks/hooks'
+import { useWindowDimensions } from '../hooks'
 
 import Cart from '../../store/cart/cart'
 import Logo from './logo'

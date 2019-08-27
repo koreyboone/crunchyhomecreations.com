@@ -6,7 +6,7 @@ import MenuToggle from './menuToggle'
 import CartPreview from './cartPreview'
 
 class Cart extends React.PureComponent {
-  handleClickOutside = event => {
+  handleClickOutside = () => {
     const [state, dispatch] = this.props.storeContext
     state.isCartOpen && dispatch({ type: 'toggleCart' })
   }

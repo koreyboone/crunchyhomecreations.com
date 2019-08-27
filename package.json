@@ -4,6 +4,9 @@
   "version": "0.1.1",
   "author": "Korey Boone <kboone00@gmail.com>",
   "devDependencies": {
+    "http-proxy-middleware": "^0.19.1",
+    "netlify-lambda": "^1.6.3",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2"
   },
   "dependencies": {
@@ -27,7 +30,8 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
-    "react-onclickoutside": "^6.8.0",
+    "react-icons": "^3.7.0",
+    "react-onclickoutside": "^6.9.0",
     "shopify-buy": "^2.7.0"
   },
   "keywords": [
@@ -35,10 +39,14 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
     "develop": "gatsby develop",
+    "start": "run-p start:**",
+    "start:app": "npm run develop",
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "build": "run-p build:**",
+    "build:app": "gatsby build",
+    "build:lambda": "netlify-lambda build src/lambda",
     "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
-    "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint src/components/** src/pages/** src/templates/** src/utils/**",
     "stylelint": "stylelint './src/**/*.js'",

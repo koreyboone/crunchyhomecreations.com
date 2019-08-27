@@ -1,4 +1,17 @@
+var proxy = require('http-proxy-middleware')
+
 module.exports = {
+  developMiddleware: app => {
+    app.use(
+      '/.netlify/functions/',
+      proxy({
+        target: 'http://localhost:9000',
+        pathRewrite: {
+          '/.netlify/functions/': '',
+        },
+      })
+    )
+  },
   siteMetadata: {
     title: `Oh my! Get your Hand-crafted and Natural products here!`,
     description: `Do you like organic lip balms, bath bombs, or syrups? Custom vinyl on anything from wine glasses, to shirts and tumblers? This is the store for you! `,

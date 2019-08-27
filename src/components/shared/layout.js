@@ -32,12 +32,25 @@ const globalStyles = css`
     margin: 0 auto;
     line-height: 1.375;
   }
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font: inherit;
+    margin: 0;
+  }
+
+  textarea {
+    overflow: auto;
+  }
 `
 
 const Main = styled('main')`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin: 0 auto;
   min-height: calc(100vh - 60px);
   opacity: 1;

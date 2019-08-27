@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import Layout from '../components/shared/layout'
 import { breakpoints, spacing } from '../utils/styles'
 import { Heading, BackToProductsLink } from '../components/shared/typography'
 
