@@ -23,7 +23,7 @@
     "gatsby-plugin-react-helmet": "^3.1.4",
     "gatsby-plugin-sharp": "^2.2.16",
     "gatsby-source-filesystem": "^2.1.14",
-    "gatsby-source-shopify": "^3.0.5",
+    "gatsby-source-shopify": "^3.0.9",
     "gatsby-transformer-sharp": "^2.2.10",
     "prop-types": "^15.7.2",
     "query-string": "^6.8.2",
