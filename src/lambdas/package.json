@@ -1,0 +1,10 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "nodemailer": "^6.3.0",
+    "nodemailer-smtp-transport": "^2.7.4"
+  }
+}

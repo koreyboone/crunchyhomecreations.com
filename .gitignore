@@ -59,7 +59,7 @@ typings/
 public
 
 # lamdas
-lambda/
+lambda
 
 # Mac files
 .DS_Store
