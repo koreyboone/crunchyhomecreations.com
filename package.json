@@ -22,7 +22,7 @@
     "gatsby-plugin-offline": "^2.2.9",
     "gatsby-plugin-react-helmet": "^3.1.4",
     "gatsby-plugin-sharp": "^2.2.16",
-    "gatsby-source-filesystem": "^2.1.14",
+    "gatsby-source-filesystem": "^2.1.18",
     "gatsby-source-shopify": "^3.0.5",
     "gatsby-transformer-sharp": "^2.2.10",
     "prop-types": "^15.7.2",
