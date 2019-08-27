@@ -45,12 +45,13 @@
     "start:lambda": "netlify-lambda serve src/lambdas",
     "build": "run-p build:**",
     "build:app": "gatsby build",
-    "build:lambda": "netlify-lambda build src/lambdas",
+    "build:lambda": "cd src/lambdas && yarn install && cd ../.. && netlify-lambda build src/lambdas",
     "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint src/components/** src/pages/** src/templates/** src/utils/**",
     "stylelint": "stylelint './src/**/*.js'",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "clean": "rm -rf functions-build && mkdir functions-build"
   },
   "repository": {
     "type": "git",
