@@ -18,6 +18,7 @@ module.exports = {
     siteUrl: `https://www.crunchyhomecreations.com`,
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-layout`,
       options: {
