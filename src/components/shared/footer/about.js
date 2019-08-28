@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Link as GatsbyLink } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import { Text, Headline } from '../../shared/typography'
@@ -21,7 +22,11 @@ const Content = styled.div`
     padding-top: 4rem;
   }
 `
-const Link = styled(OutboundLink)`
+const ExternalLink = styled(OutboundLink)`
+  ${link};
+`
+
+const Link = styled(GatsbyLink)`
   ${link};
 `
 
@@ -30,20 +35,20 @@ export default () => (
     <Headline>About Crunchy Home Creations</Headline>
     <Content>
       <Text>
-        Founded by Kristi Boone, Crunchy Home Creations seeks to
-        provide high-quality custom made items. From tumblers and wine glasses to holistic
-        tonics and syrups, our products are sure to please or your money back
-        guaranteed.
+        Founded by Kristi Boone, Crunchy Home Creations seeks to provide
+        high-quality custom made items. From tumblers and wine glasses to
+        holistic tonics and syrups, our products are sure to please or your
+        money back guaranteed.
       </Text>
       <Subheading>Questions or concerns?</Subheading>
       <Text>
         Visit us on{' '}
-        <Link href="https://www.facebook.com/Crunchy-Home-Creations-335705617180868/">
+        <ExternalLink href="https://www.facebook.com/Crunchy-Home-Creations-335705617180868/">
           facebook
-        </Link>{' '}
-        or send an email to{' '}
-        <Link href="mailto:support@crunchyhomecreations.com">
-          support@crunchyhomecreations.com
+        </ExternalLink>{' '}
+        or {' '}
+        <Link to="/contact">
+          Contact Us
         </Link>
       </Text>
     </Content>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Link } from 'gatsby'
 
 import { breakpoints, spacing } from '../utils/styles'
 import { Heading, BackToProductsLink } from '../components/shared/typography'
@@ -38,11 +39,9 @@ const Support = () => (
       <Summary>Why won't my credit card work?</Summary>
       <p>
         Please make sure the card isn't frozen or otherwise blocked by your
-        financial institution. If it's not that, please send us an email to{' '}
-        <a href="mailto:support@crunchyhomecreations.com">
-          support@crunchyhomecreations.com
-        </a>{' '}
-        if you're unable to pay with your credit card.
+        financial institution. If it's not that, please{' '}
+        <Link to="/contact">send us an email</Link>{' '}if you're unable to pay
+        with your credit card.
       </p>
     </Details>
 
@@ -53,11 +52,8 @@ const Support = () => (
       <p>
         Tracking updates may not always show up in real time on your tracking
         link. If you still have not received your order at the end of 6 weeks,
-        please let us know by sending an email to{' '}
-        <a href="mailto:support@crunchyhomecreations.com">
-          support@crunchyhomecreations.com
-        </a>{' '}
-        , and we'll see how we can help!
+        please let us know by <Link to="/contact">sending us an email</Link>,
+        and we'll see how we can help!
       </p>
     </Details>
 
@@ -66,36 +62,27 @@ const Support = () => (
       <Summary>Will you do custom cup orders?</Summary>
       <p>
         Yes, we will work with you directly on design and development. Please
-        let us know if you are interested in a custom order by sending an email
-        to{' '}
-        <a href="mailto:support@crunchyhomecreations.com">
-          support@crunchyhomecreations.com
-        </a>{' '}
-        , and we'll see how we can help!
+        let us know if you are interested in a custom order by{' '}
+        <Link to="/contact">sending us an email</Link>, and we'll see how we can
+        help!
       </p>
     </Details>
     <Details>
       <Summary>Will you do custom shirt orders?</Summary>
       <p>
         Yes, we will work with you directly on design and development. Please
-        let us know if you are interested in a custom order by sending an email
-        to{' '}
-        <a href="mailto:support@crunchyhomecreations.com">
-          support@crunchyhomecreations.com
-        </a>{' '}
-        , and we'll see how we can help!
+        let us know if you are interested in a custom order by{' '}
+        <Link to="/contact">sending us an email</Link>, and we'll see how we can
+        help!
       </p>
     </Details>
     <Details>
       <Summary>Will you do custom vinyl orders?</Summary>
       <p>
         Yes, we will work with you directly on design and development. Please
-        let us know if you are interested in a custom order by sending an email
-        to{' '}
-        <a href="mailto:support@crunchyhomecreations.com">
-          support@crunchyhomecreations.com
-        </a>{' '}
-        , and we'll see how we can help!
+        let us know if you are interested in a custom order by{' '}
+        <Link to="/contact">sending us an email</Link>, and we'll see how we can
+        help!
       </p>
     </Details>
   </Container>
