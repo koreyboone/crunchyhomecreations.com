@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import StoreContext from '../store/storeContext'
 
-import Product from './product/product'
+import Product from './product'
 import { breakpoints, spacing } from '../../utils/styles'
 
 const ProductsContainer = styled.div`

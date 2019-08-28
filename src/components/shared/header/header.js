@@ -3,7 +3,7 @@ import { Link, navigate } from 'gatsby'
 import styled from '@emotion/styled'
 import { useWindowDimensions } from '../hooks'
 
-import Cart from '../../store/cart/cart'
+import Cart from '../../store/cart'
 import Logo from './logo'
 import { colors, spacing, breakpoints } from '../../../utils/styles'
 import StoreContext from '../../store/storeContext'

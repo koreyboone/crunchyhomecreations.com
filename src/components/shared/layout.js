@@ -7,8 +7,8 @@ import queryString from 'query-string'
 
 import StoreContext, { defaultStoreContext } from '../store/storeContext'
 import storeReducer from '../store/storeReducer'
-import Header from './header/header'
-import Footer from './footer/footer'
+import Header from './header'
+import Footer from './footer'
 import SEO from './seo.js'
 import { breakpoints } from '../../utils/styles'
 
