@@ -37,8 +37,14 @@ export default () => (
         <span role="img" aria-label="love">
           💙
         </span>{' '}
-        by <Link href="https://github.com/koreyboone">@koreyboone</Link> ·{' '}
-        <Link href="https://github.com/koreyboone/crunchyhomecreations.com">
+        by{' '}
+        <Link rel="noopener noreferrer" href="https://github.com/koreyboone">
+          @koreyboone
+        </Link>{' '}
+        ·{' '}
+        <Link
+          rel="noopener noreferrer"
+          href="https://github.com/koreyboone/crunchyhomecreations.com">
           See the source code on GitHub
         </Link>
       </Legal>

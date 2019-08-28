@@ -26,6 +26,8 @@ export default () => {
         href="https://crunchyhomecreations.myshopify.com"
       />
 
+      <link rel="preconnect" href="https://marketingplatform.google.com" />
+
       <link rel="canonical" href={siteUrl} />
       <link rel="manifest" href="/manifest.json" />
       <meta name="msapplication-TileColor" content="#0b3a61" />

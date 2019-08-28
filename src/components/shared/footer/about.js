@@ -4,7 +4,7 @@ import { Link as GatsbyLink } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import { Text, Headline } from '../../shared/typography'
-import { colors, breakpoints, link, fonts} from '../../../utils/styles'
+import { colors, breakpoints, link, fonts } from '../../../utils/styles'
 
 const About = styled.div`
   position: relative;
@@ -43,13 +43,12 @@ export default () => (
       <Subheading>Questions or concerns?</Subheading>
       <Text>
         Visit us on{' '}
-        <ExternalLink href="https://www.facebook.com/Crunchy-Home-Creations-335705617180868/">
+        <ExternalLink
+          rel="noopener noreferrer"
+          href="https://www.facebook.com/Crunchy-Home-Creations-335705617180868/">
           facebook
         </ExternalLink>{' '}
-        or {' '}
-        <Link to="/contact">
-          Contact Us
-        </Link>
+        or <Link to="/contact">Contact Us</Link>
       </Text>
     </Content>
   </About>

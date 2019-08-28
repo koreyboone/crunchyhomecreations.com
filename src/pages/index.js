@@ -111,6 +111,7 @@ const IndexPage = props => (
         or visit us at{' '}
         <Link
           target="_blank"
+          rel="noopener noreferrer"
           href="https://www.facebook.com/Crunchy-Home-Creations-335705617180868/">
           our facebook page
         </Link>{' '}
