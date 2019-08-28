@@ -122,6 +122,13 @@ export default ({ filterProducts, collections }) => {
           }}>
           FAQs
         </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setToggled(false)
+            navigate('/contact')
+          }}>
+          Contact Us
+        </MenuItem>
         <ExternalLink href="https://www.facebook.com/Crunchy-Home-Creations-335705617180868/">
           Facebook
         </ExternalLink>
